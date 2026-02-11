@@ -1,0 +1,103 @@
+<!-- 
+  Exemplo 3: Mudando Estilos com JavaScript
+  
+  Este exemplo demonstra:
+  - Como mudar estilos CSS com JavaScript
+  - Como mudar conteúdo de texto
+  - Múltiplos botões com ações diferentes
+-->
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exemplo 3 - Mudando Estilos</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 40px;
+            text-align: center;
+            transition: all 0.3s;
+        }
+        .caixa {
+            width: 300px;
+            height: 200px;
+            background-color: #f0f0f0;
+            margin: 20px auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid #333;
+            border-radius: 10px;
+            transition: all 0.3s;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            margin: 5px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            background-color: #2196F3;
+            color: white;
+        }
+        button:hover {
+            background-color: #0b7dda;
+        }
+    </style>
+</head>
+<body>
+    <h1 id="titulo">Mudando Estilos com JavaScript</h1>
+    
+    <div class="caixa" id="caixa">
+        <p id="textoCaixa">Clique nos botões!</p>
+    </div>
+    
+    <button id="btnAzul">Fundo Azul</button>
+    <button id="btnVerde">Fundo Verde</button>
+    <button id="btnVermelho">Fundo Vermelho</button>
+    <button id="btnTexto">Mudar Texto</button>
+    <button id="btnTamanho">Aumentar</button>
+    
+    <script>
+        // Pegar elementos
+        const caixa = document.getElementById('caixa');
+        const textoCaixa = document.getElementById('textoCaixa');
+        const titulo = document.getElementById('titulo');
+        
+        // Botão Azul
+        document.getElementById('btnAzul').addEventListener('click', function() {
+            caixa.style.backgroundColor = '#2196F3';
+            console.log('Cor mudada para azul');
+        });
+        
+        // Botão Verde
+        document.getElementById('btnVerde').addEventListener('click', function() {
+            caixa.style.backgroundColor = '#4CAF50';
+            console.log('Cor mudada para verde');
+        });
+        
+        // Botão Vermelho
+        document.getElementById('btnVermelho').addEventListener('click', function() {
+            caixa.style.backgroundColor = '#f44336';
+            console.log('Cor mudada para vermelho');
+        });
+        
+        // Botão Mudar Texto
+        document.getElementById('btnTexto').addEventListener('click', function() {
+            textoCaixa.textContent = 'Texto mudado!';
+            textoCaixa.style.color = 'white';
+            console.log('Texto alterado');
+        });
+        
+        // Botão Aumentar
+        document.getElementById('btnTamanho').addEventListener('click', function() {
+            caixa.style.width = '400px';
+            caixa.style.height = '250px';
+            console.log('Tamanho aumentado');
+        });
+        
+        console.log('Exemplo 3 carregado! Experimente os botões.');
+    </script>
+</body>
+</html>
