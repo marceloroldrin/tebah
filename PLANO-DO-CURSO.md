@@ -33,22 +33,22 @@ Ao final do curso, o aluno deverá:
 
 ---
 
-## Estrutura Macro (6 Meses)
+## Estrutura Macro (6 Módulos)
 
-1. **Mês 1 – Fundamentos da Web + HTML Profissional**
-2. **Mês 2 – CSS de Verdade + Padrões + Bibliotecas**
-3. **Mês 3 – JavaScript: Lógica e Interatividade no Navegador**
-4. **Mês 4 – JavaScript Avançado + Consumo de APIs**
-5. **Mês 5 – Introdução a Backend com Node.js + APIs para o Cardápio**
-6. **Mês 6 – Projeto Final, Empreendedorismo, Portfólio e Futuro com IA**
+1. **Módulo 1 – Fundamentos da Web + HTML Profissional**
+2. **Módulo 2 – CSS de Verdade + Padrões + Bibliotecas**
+3. **Módulo 3 – JavaScript: Lógica e Interatividade no Navegador**
+4. **Módulo 4 – JavaScript Avançado + Consumo de APIs**
+5. **Módulo 5 – Introdução a Backend com Node.js + APIs para o Cardápio**
+6. **Módulo 6 – Projeto Final, Empreendedorismo, Portfólio e Futuro com IA**
 
-> Abaixo está detalhado o **plano de aulas dos 2 primeiros meses**, já em formato de encontros para uso no GitHub.
+> Abaixo está detalhado o **plano de aulas dos 2 primeiros módulos**, já em formato de encontros para uso no GitHub.
 
 ---
 
-## MÊS 1 – Fundamentos Web + HTML Profissional
+## MÓDULO 1 – Fundamentos Web + HTML Profissional
 
-### Objetivos do Mês 1
+### Objetivos do Módulo 1
 
 - Entender como a web funciona (cliente/servidor, arquivos, navegador).
 - Escrever HTML semântico e organizado.
@@ -323,9 +323,9 @@ Ao final do curso, o aluno deverá:
 
 ---
 
-## MÊS 2 – CSS de Verdade + Padrões + Bibliotecas
+## MÓDULO 2 – CSS de Verdade + Padrões + Bibliotecas
 
-### Objetivos do Mês 2
+### Objetivos do Módulo 2
 
 - Aprender CSS de forma estruturada:
   - Box Model

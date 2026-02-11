@@ -35,17 +35,17 @@ Este curso foi criado especialmente para adolescentes do sertão baiano, com foc
 
 ### 📁 Material do Curso
 
-#### Mês 1 - HTML
-- [Semana 1: Introdução Web e HTML Semântico](mes-1-html/semana-1/)
-- [Semana 2: Acessibilidade e Formulários](mes-1-html/semana-2/)
-- [Semana 3: Planejamento do Cardápio](mes-1-html/semana-3/)
-- [Semana 4: Git/GitHub e Revisão](mes-1-html/semana-4/)
+#### Módulo 1 - HTML
+- [Semana 1: Introdução Web e HTML Semântico](modulo-1-html/semana-1/)
+- [Semana 2: Acessibilidade e Formulários](modulo-1-html/semana-2/)
+- [Semana 3: Planejamento do Cardápio](modulo-1-html/semana-3/)
+- [Semana 4: Git/GitHub e Revisão](modulo-1-html/semana-4/)
 
-#### Mês 2 - CSS
-- [Semana 1: Fundamentos CSS e Flexbox](mes-2-css/semana-1/)
-- [Semana 2: Grid e Responsividade](mes-2-css/semana-2/)
-- [Semana 3: BEM e Bibliotecas](mes-2-css/semana-3/)
-- [Semana 4: Animações e Apresentação](mes-2-css/semana-4/)
+#### Módulo 2 - CSS
+- [Semana 1: Fundamentos CSS e Flexbox](modulo-2-css/semana-1/)
+- [Semana 2: Grid e Responsividade](modulo-2-css/semana-2/)
+- [Semana 3: BEM e Bibliotecas](modulo-2-css/semana-3/)
+- [Semana 4: Animações e Apresentação](modulo-2-css/semana-4/)
 
 ---
 
@@ -85,7 +85,7 @@ Cada encontro segue este formato:
 1. **Leia primeiro:** [COMECE-AQUI.md](COMECE-AQUI.md)
 2. **Entenda a estrutura:** [ESTRUTURA.md](ESTRUTURA.md)
 3. **Veja o plano completo:** [PLANO-DO-CURSO.md](PLANO-DO-CURSO.md)
-4. **Comece o Mês 1:** [mes-1-html/semana-1/encontro-1-introducao-web-html/](mes-1-html/semana-1/encontro-1-introducao-web-html/)
+4. **Comece o Módulo 1:** [modulo-1-html/semana-1/encontro-1-introducao-web-html/](modulo-1-html/semana-1/encontro-1-introducao-web-html/)
 
 ---
 
@@ -93,12 +93,12 @@ Cada encontro segue este formato:
 
 ### Conteúdo Disponível
 
-- ✅ **Mês 1 - HTML** (8 encontros completos)
-- ✅ **Mês 2 - CSS** (8 encontros completos)
-- ⏳ **Mês 3 - JavaScript** (em desenvolvimento)
-- ⏳ **Mês 4 - JavaScript Avançado** (em desenvolvimento)
-- ⏳ **Mês 5 - Node.js** (em desenvolvimento)
-- ⏳ **Mês 6 - Projeto Final** (em desenvolvimento)
+- ✅ **Módulo 1 - HTML** (8 encontros completos)
+- ✅ **Módulo 2 - CSS** (8 encontros completos)
+- ⏳ **Módulo 3 - JavaScript** (em desenvolvimento)
+- ⏳ **Módulo 4 - JavaScript Avançado** (em desenvolvimento)
+- ⏳ **Módulo 5 - Node.js** (em desenvolvimento)
+- ⏳ **Módulo 6 - Projeto Final** (em desenvolvimento)
 
 ### Estatísticas
 - 📝 **16 encontros** documentados
@@ -112,12 +112,12 @@ Cada encontro segue este formato:
 
 Durante todo o curso, você vai construir um **cardápio digital completo** para comércios locais:
 
-- **Mês 1:** Estrutura HTML semântica
-- **Mês 2:** Design responsivo com CSS
-- **Mês 3:** Interatividade com JavaScript
-- **Mês 4:** Integração com APIs
-- **Mês 5:** Backend com Node.js
-- **Mês 6:** Deploy e apresentação
+- **Módulo 1:** Estrutura HTML semântica
+- **Módulo 2:** Design responsivo com CSS
+- **Módulo 3:** Interatividade com JavaScript
+- **Módulo 4:** Integração com APIs
+- **Módulo 5:** Backend com Node.js
+- **Módulo 6:** Deploy e apresentação
 
 ---
 
