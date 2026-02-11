@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exemplo 1 - Tipos de Dados</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 40px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #333;
+            border-bottom: 3px solid #4CAF50;
+            padding-bottom: 10px;
+        }
+        .info-box {
+            background-color: #e8f5e9;
+            padding: 15px;
+            margin: 15px 0;
+            border-left: 4px solid #4CAF50;
+            border-radius: 5px;
+        }
+        .tipo {
+            color: #1976D2;
+            font-weight: bold;
+        }
+        code {
+            background-color: #f5f5f5;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Courier New', monospace;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Exemplo 1 - Explorando Tipos de Dados</h1>
+        <p>Abra o console (F12) para ver mais detalhes!</p>
+        
+        <div id="resultado"></div>
+    </div>
+    
+    <script>
+        console.log('=== EXPLORANDO TIPOS DE DADOS ===\n');
+        
+        // STRING (Texto)
+        let nome = 'Maria Silva';
+        let cidade = "Juazeiro";
+        let mensagem = `Olá, meu nome é ${nome}`;
+        
+        console.log('--- STRINGS ---');
+        console.log('nome:', nome);
+        console.log('Tipo:', typeof nome);
+        console.log('cidade:', cidade);
+        console.log('mensagem:', mensagem);
+        console.log('');
+        
+        // NUMBER (Números)
+        let idade = 16;
+        let altura = 1.65;
+        let temperatura = -5;
+        
+        console.log('--- NUMBERS ---');
+        console.log('idade:', idade);
+        console.log('Tipo:', typeof idade);
+        console.log('altura:', altura);
+        console.log('temperatura:', temperatura);
+        console.log('');
+        
+        // BOOLEAN (Verdadeiro/Falso)
+        let estudante = true;
+        let aprovado = false;
+        
+        console.log('--- BOOLEANS ---');
+        console.log('estudante:', estudante);
+        console.log('Tipo:', typeof estudante);
+        console.log('aprovado:', aprovado);
+        console.log('');
+        
+        // UNDEFINED
+        let semValor;
+        
+        console.log('--- UNDEFINED ---');
+        console.log('semValor:', semValor);
+        console.log('Tipo:', typeof semValor);
+        console.log('');
+        
+        // NULL
+        let vazio = null;
+        
+        console.log('--- NULL ---');
+        console.log('vazio:', vazio);
+        console.log('Tipo:', typeof vazio); // Curiosidade: retorna "object"
+        console.log('');
+        
+        // Mostrar na página
+        const resultado = document.getElementById('resultado');
+        resultado.innerHTML = `
+            <div class="info-box">
+                <strong>String:</strong> <span class="tipo">${typeof nome}</span><br>
+                <code>let nome = '${nome}'</code>
+            </div>
+            
+            <div class="info-box">
+                <strong>Number:</strong> <span class="tipo">${typeof idade}</span><br>
+                <code>let idade = ${idade}</code>
+            </div>
+            
+            <div class="info-box">
+                <strong>Boolean:</strong> <span class="tipo">${typeof estudante}</span><br>
+                <code>let estudante = ${estudante}</code>
+            </div>
+            
+            <div class="info-box">
+                <strong>Undefined:</strong> <span class="tipo">${typeof semValor}</span><br>
+                <code>let semValor;</code>
+            </div>
+            
+            <div class="info-box">
+                <strong>Null:</strong> <span class="tipo">${typeof vazio}</span><br>
+                <code>let vazio = null;</code>
+            </div>
+        `;
+    </script>
+</body>
+</html>

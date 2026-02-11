@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exemplo 3 - Escopo de Variáveis</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 40px;
+            background-color: #1a1a2e;
+            color: white;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        h1 {
+            text-align: center;
+            color: #16c79a;
+            font-size: 36px;
+        }
+        .secao {
+            background-color: #16213e;
+            padding: 25px;
+            margin: 20px 0;
+            border-radius: 10px;
+            border-left: 5px solid #16c79a;
+        }
+        .secao h2 {
+            color: #16c79a;
+            margin-top: 0;
+        }
+        .codigo {
+            background-color: #0f3460;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 10px 0;
+            font-family: 'Courier New', monospace;
+            overflow-x: auto;
+        }
+        .sucesso {
+            color: #16c79a;
+            font-weight: bold;
+        }
+        .erro {
+            color: #e94560;
+            font-weight: bold;
+        }
+        .aviso {
+            background-color: #e94560;
+            color: white;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 10px 0;
+        }
+        button {
+            background-color: #16c79a;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 5px;
+        }
+        button:hover {
+            background-color: #11a67d;
+        }
+        .resultado {
+            background-color: #0f3460;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 15px;
+            min-height: 50px;
+        }
+        .exemplo-visual {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin: 20px 0;
+        }
+        .caixa {
+            background-color: #0f3460;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+        }
+        .caixa h3 {
+            color: #16c79a;
+            margin-top: 0;
+        }
+        .variavel {
+            background-color: #16213e;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: 2px solid #16c79a;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🔍 Escopo de Variáveis</h1>
+        
+        <div class="secao">
+            <h2>📦 O que é Escopo?</h2>
+            <p>Escopo é onde uma variável "vive" e pode ser acessada.</p>
+            
+            <div class="exemplo-visual">
+                <div class="caixa">
+                    <h3>🌍 Escopo Global</h3>
+                    <div class="variavel">
+                        Variável visível em<br>
+                        <strong>TODO O CÓDIGO</strong>
+                    </div>
+                </div>
+                <div class="caixa">
+                    <h3>📦 Escopo Local</h3>
+                    <div class="variavel">
+                        Variável visível apenas<br>
+                        <strong>DENTRO DA FUNÇÃO</strong>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="secao">
+            <h2>✅ Exemplo 1: Variável Global</h2>
+            <div class="codigo">
+let mensagemGlobal = 'Eu sou global!';<br>
+<br>
+function mostrarMensagem() {<br>
+    console.log(mensagemGlobal); <span class="sucesso">// ✓ Funciona!</span><br>
+}<br>
+<br>
+mostrarMensagem();<br>
+console.log(mensagemGlobal); <span class="sucesso">// ✓ Funciona!</span>
+            </div>
+            <button onclick="exemplo1()">Testar Exemplo 1</button>
+            <div id="resultado1" class="resultado" style="display:none;"></div>
+        </div>
+        
+        <div class="secao">
+            <h2>❌ Exemplo 2: Variável Local</h2>
+            <div class="codigo">
+function teste() {<br>
+    let mensagemLocal = 'Eu sou local!';<br>
+    console.log(mensagemLocal); <span class="sucesso">// ✓ Funciona!</span><br>
+}<br>
+<br>
+teste();<br>
+console.log(mensagemLocal); <span class="erro">// ✗ ERRO!</span>
+            </div>
+            <button onclick="exemplo2()">Testar Exemplo 2 (vai dar erro!)</button>
+            <div id="resultado2" class="resultado" style="display:none;"></div>
+        </div>
+        
+        <div class="secao">
+            <h2>🎯 Exemplo 3: Contador com Escopo</h2>
+            <p>Veja como o escopo afeta o comportamento:</p>
+            <button onclick="exemplo3()">Incrementar Contador</button>
+            <button onclick="resetarContador()">Resetar</button>
+            <div id="resultado3" class="resultado"></div>
+        </div>
+        
+        <div class="secao">
+            <h2>🔄 Exemplo 4: Parâmetros são Locais</h2>
+            <div class="codigo">
+function saudar(nome) { <span style="color: #888">// 'nome' é local</span><br>
+    console.log(`Olá, ${nome}!`);<br>
+}<br>
+<br>
+saudar('Maria');<br>
+console.log(nome); <span class="erro">// ✗ ERRO! 'nome' não existe aqui</span>
+            </div>
+            <button onclick="exemplo4()">Testar Exemplo 4</button>
+            <div id="resultado4" class="resultado" style="display:none;"></div>
+        </div>
+    </div>
+    
+    <script>
+        console.log('=== ESCOPO DE VARIÁVEIS ===\n');
+        
+        // Variável global para o contador
+        let contadorGlobal = 0;
+        
+        // Exemplo 1: Variável Global
+        function exemplo1() {
+            console.log('--- Exemplo 1: Variável Global ---');
+            
+            let mensagemGlobal = 'Eu sou global!';
+            
+            function mostrarMensagem() {
+                console.log('Dentro da função:', mensagemGlobal);
+                return mensagemGlobal;
+            }
+            
+            let dentroFuncao = mostrarMensagem();
+            console.log('Fora da função:', mensagemGlobal);
+            
+            const div = document.getElementById('resultado1');
+            div.style.display = 'block';
+            div.innerHTML = `
+                <p class="sucesso">✓ Variável global acessada com sucesso!</p>
+                <p>Dentro da função: "${dentroFuncao}"</p>
+                <p>Fora da função: "${mensagemGlobal}"</p>
+            `;
+            console.log('');
+        }
+        
+        // Exemplo 2: Variável Local (erro)
+        function exemplo2() {
+            console.log('--- Exemplo 2: Variável Local ---');
+            
+            try {
+                function teste() {
+                    let mensagemLocal = 'Eu sou local!';
+                    console.log('Dentro da função:', mensagemLocal);
+                    return mensagemLocal;
+                }
+                
+                let dentroFuncao = teste();
+                console.log('Tentando acessar fora da função...');
+                
+                // Isso vai dar erro (simulado)
+                throw new Error("mensagemLocal is not defined");
+                
+            } catch (erro) {
+                console.error('ERRO:', erro.message);
+                
+                const div = document.getElementById('resultado2');
+                div.style.display = 'block';
+                div.innerHTML = `
+                    <div class="aviso">
+                        <p class="erro">✗ ERRO ao acessar variável local!</p>
+                        <p><strong>Mensagem:</strong> ${erro.message}</p>
+                        <p>Variáveis locais só existem dentro da função!</p>
+                    </div>
+                `;
+            }
+            console.log('');
+        }
+        
+        // Exemplo 3: Contador com escopo global
+        function exemplo3() {
+            contadorGlobal++;
+            atualizarContador();
+            console.log('Contador incrementado:', contadorGlobal);
+        }
+        
+        function resetarContador() {
+            contadorGlobal = 0;
+            atualizarContador();
+            console.log('Contador resetado');
+        }
+        
+        function atualizarContador() {
+            const div = document.getElementById('resultado3');
+            div.innerHTML = `
+                <h3 class="sucesso">Contador: ${contadorGlobal}</h3>
+                <p>A variável <code>contadorGlobal</code> é global, então mantém seu valor entre as chamadas!</p>
+                <div class="codigo">
+let contadorGlobal = ${contadorGlobal}; <span style="color: #888">// Global</span>
+                </div>
+            `;
+        }
+        
+        // Exemplo 4: Parâmetros são locais
+        function exemplo4() {
+            console.log('--- Exemplo 4: Parâmetros são Locais ---');
+            
+            function saudar(nome) {
+                console.log('Dentro da função, nome =', nome);
+                return `Olá, ${nome}!`;
+            }
+            
+            let saudacao = saudar('Maria');
+            console.log('Saudação:', saudacao);
+            console.log('Tentando acessar parâmetro "nome" fora da função...');
+            console.error('ERRO: nome is not defined');
+            
+            const div = document.getElementById('resultado4');
+            div.style.display = 'block';
+            div.innerHTML = `
+                <p class="sucesso">✓ Dentro da função: "${saudacao}"</p>
+                <div class="aviso">
+                    <p class="erro">✗ Fora da função: ERRO!</p>
+                    <p>Parâmetros são variáveis locais da função!</p>
+                </div>
+            `;
+            console.log('');
+        }
+        
+        // Inicializar contador
+        atualizarContador();
+        
+        // Demonstração no console
+        console.log('Demonstração de Escopo:\n');
+        
+        let global = 'Sou global';
+        
+        function demonstracao() {
+            let local = 'Sou local';
+            console.log('Dentro da função:');
+            console.log('  - global:', global, '✓');
+            console.log('  - local:', local, '✓');
+        }
+        
+        demonstracao();
+        console.log('\nFora da função:');
+        console.log('  - global:', global, '✓');
+        console.log('  - local: [ERRO - não existe aqui] ✗');
+        console.log('');
+    </script>
+</body>
+</html>

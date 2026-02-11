@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exemplo 1 - Funções Básicas</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 40px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #2196F3;
+            text-align: center;
+        }
+        .exemplo {
+            background-color: #e3f2fd;
+            padding: 20px;
+            margin: 15px 0;
+            border-radius: 8px;
+            border-left: 5px solid #2196F3;
+        }
+        .exemplo h3 {
+            margin-top: 0;
+            color: #1976D2;
+        }
+        .codigo {
+            background-color: #263238;
+            color: #aed581;
+            padding: 15px;
+            border-radius: 5px;
+            font-family: 'Courier New', monospace;
+            margin: 10px 0;
+            overflow-x: auto;
+        }
+        .resultado {
+            background-color: #fff3e0;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 10px 0;
+            border-left: 4px solid #ff9800;
+        }
+        button {
+            background-color: #2196F3;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 5px;
+        }
+        button:hover {
+            background-color: #1976D2;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>📦 Funções Básicas em JavaScript</h1>
+        <p style="text-align: center; color: #666;">Abra o console (F12) para ver mais detalhes!</p>
+        
+        <div class="exemplo">
+            <h3>1️⃣ Função Sem Parâmetros</h3>
+            <div class="codigo">
+function dizerOla() {<br>
+    console.log('Olá!');<br>
+}<br>
+<br>
+dizerOla(); // Chama a função
+            </div>
+            <button onclick="exemplo1()">Executar Exemplo 1</button>
+            <div id="resultado1" class="resultado" style="display:none;"></div>
+        </div>
+        
+        <div class="exemplo">
+            <h3>2️⃣ Função Com Parâmetro</h3>
+            <div class="codigo">
+function saudar(nome) {<br>
+    console.log(`Olá, ${nome}!`);<br>
+}<br>
+<br>
+saudar('Maria');<br>
+saudar('João');
+            </div>
+            <button onclick="exemplo2()">Executar Exemplo 2</button>
+            <div id="resultado2" class="resultado" style="display:none;"></div>
+        </div>
+        
+        <div class="exemplo">
+            <h3>3️⃣ Função Com Return</h3>
+            <div class="codigo">
+function somar(a, b) {<br>
+    return a + b;<br>
+}<br>
+<br>
+let resultado = somar(5, 3);<br>
+console.log(resultado); // 8
+            </div>
+            <button onclick="exemplo3()">Executar Exemplo 3</button>
+            <div id="resultado3" class="resultado" style="display:none;"></div>
+        </div>
+        
+        <div class="exemplo">
+            <h3>4️⃣ Função Arrow</h3>
+            <div class="codigo">
+// Forma tradicional<br>
+function dobro1(numero) {<br>
+    return numero * 2;<br>
+}<br>
+<br>
+// Forma arrow<br>
+const dobro2 = (numero) => numero * 2;<br>
+<br>
+console.log(dobro2(5)); // 10
+            </div>
+            <button onclick="exemplo4()">Executar Exemplo 4</button>
+            <div id="resultado4" class="resultado" style="display:none;"></div>
+        </div>
+    </div>
+    
+    <script>
+        console.log('=== EXEMPLOS DE FUNÇÕES ===\n');
+        
+        // Exemplo 1: Função sem parâmetros
+        function exemplo1() {
+            console.log('--- Exemplo 1: Função Sem Parâmetros ---');
+            
+            function dizerOla() {
+                console.log('Olá!');
+                return 'Olá!';
+            }
+            
+            let mensagem = '';
+            for (let i = 0; i < 3; i++) {
+                let msg = dizerOla();
+                mensagem += msg + '<br>';
+            }
+            
+            const div = document.getElementById('resultado1');
+            div.style.display = 'block';
+            div.innerHTML = `<strong>Resultado:</strong><br>${mensagem}`;
+            console.log('');
+        }
+        
+        // Exemplo 2: Função com parâmetro
+        function exemplo2() {
+            console.log('--- Exemplo 2: Função Com Parâmetro ---');
+            
+            function saudar(nome) {
+                console.log(`Olá, ${nome}!`);
+                return `Olá, ${nome}!`;
+            }
+            
+            const nomes = ['Maria', 'João', 'Ana', 'Carlos'];
+            let mensagens = '';
+            
+            nomes.forEach(nome => {
+                let msg = saudar(nome);
+                mensagens += msg + '<br>';
+            });
+            
+            const div = document.getElementById('resultado2');
+            div.style.display = 'block';
+            div.innerHTML = `<strong>Resultado:</strong><br>${mensagens}`;
+            console.log('');
+        }
+        
+        // Exemplo 3: Função com return
+        function exemplo3() {
+            console.log('--- Exemplo 3: Função Com Return ---');
+            
+            function somar(a, b) {
+                console.log(`Somando ${a} + ${b}`);
+                return a + b;
+            }
+            
+            let resultado1 = somar(5, 3);
+            let resultado2 = somar(10, 7);
+            let resultado3 = somar(resultado1, resultado2);
+            
+            console.log('Resultado 1:', resultado1);
+            console.log('Resultado 2:', resultado2);
+            console.log('Resultado 3:', resultado3);
+            
+            const div = document.getElementById('resultado3');
+            div.style.display = 'block';
+            div.innerHTML = `
+                <strong>Resultado:</strong><br>
+                5 + 3 = ${resultado1}<br>
+                10 + 7 = ${resultado2}<br>
+                ${resultado1} + ${resultado2} = ${resultado3}
+            `;
+            console.log('');
+        }
+        
+        // Exemplo 4: Função arrow
+        function exemplo4() {
+            console.log('--- Exemplo 4: Função Arrow ---');
+            
+            // Forma tradicional
+            function dobro1(numero) {
+                return numero * 2;
+            }
+            
+            // Forma arrow
+            const dobro2 = (numero) => numero * 2;
+            
+            // Forma arrow super curta
+            const triplo = n => n * 3;
+            
+            const numeros = [2, 5, 8, 10];
+            let resultados = '';
+            
+            numeros.forEach(num => {
+                let d = dobro2(num);
+                let t = triplo(num);
+                console.log(`Número: ${num} | Dobro: ${d} | Triplo: ${t}`);
+                resultados += `Número: ${num} | Dobro: ${d} | Triplo: ${t}<br>`;
+            });
+            
+            const div = document.getElementById('resultado4');
+            div.style.display = 'block';
+            div.innerHTML = `<strong>Resultado:</strong><br>${resultados}`;
+            console.log('');
+        }
+    </script>
+</body>
+</html>

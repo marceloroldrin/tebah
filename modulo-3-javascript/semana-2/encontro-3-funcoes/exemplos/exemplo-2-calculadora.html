@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exemplo 2 - Calculadora com Funções</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            padding: 40px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .calculadora {
+            background-color: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            max-width: 500px;
+            width: 100%;
+        }
+        h1 {
+            text-align: center;
+            color: #667eea;
+            margin-bottom: 30px;
+        }
+        .display {
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            min-height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+            font-weight: bold;
+            color: #333;
+            border: 2px solid #e9ecef;
+        }
+        .inputs {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        .input-group {
+            display: flex;
+            flex-direction: column;
+        }
+        .input-group label {
+            margin-bottom: 5px;
+            color: #666;
+            font-weight: 500;
+        }
+        .input-group input {
+            padding: 12px;
+            border: 2px solid #e9ecef;
+            border-radius: 8px;
+            font-size: 18px;
+            text-align: center;
+        }
+        .input-group input:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+        .botoes {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+        button {
+            padding: 15px;
+            border: none;
+            border-radius: 10px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        .btn-somar {
+            background-color: #4CAF50;
+            color: white;
+        }
+        .btn-somar:hover {
+            background-color: #45a049;
+            transform: translateY(-2px);
+        }
+        .btn-subtrair {
+            background-color: #f44336;
+            color: white;
+        }
+        .btn-subtrair:hover {
+            background-color: #da190b;
+            transform: translateY(-2px);
+        }
+        .btn-multiplicar {
+            background-color: #2196F3;
+            color: white;
+        }
+        .btn-multiplicar:hover {
+            background-color: #0b7dda;
+            transform: translateY(-2px);
+        }
+        .btn-dividir {
+            background-color: #ff9800;
+            color: white;
+        }
+        .btn-dividir:hover {
+            background-color: #e68900;
+            transform: translateY(-2px);
+        }
+        .historico {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #f8f9fa;
+            border-radius: 10px;
+            max-height: 200px;
+            overflow-y: auto;
+        }
+        .historico h3 {
+            margin-top: 0;
+            color: #667eea;
+        }
+        .historico-item {
+            padding: 8px;
+            margin: 5px 0;
+            background-color: white;
+            border-radius: 5px;
+            font-family: 'Courier New', monospace;
+        }
+    </style>
+</head>
+<body>
+    <div class="calculadora">
+        <h1>🧮 Calculadora com Funções</h1>
+        
+        <div class="display" id="display">0</div>
+        
+        <div class="inputs">
+            <div class="input-group">
+                <label>Número 1:</label>
+                <input type="number" id="num1" value="10">
+            </div>
+            <div class="input-group">
+                <label>Número 2:</label>
+                <input type="number" id="num2" value="5">
+            </div>
+        </div>
+        
+        <div class="botoes">
+            <button class="btn-somar" onclick="calcular('somar')">➕ Somar</button>
+            <button class="btn-subtrair" onclick="calcular('subtrair')">➖ Subtrair</button>
+            <button class="btn-multiplicar" onclick="calcular('multiplicar')">✖️ Multiplicar</button>
+            <button class="btn-dividir" onclick="calcular('dividir')">➗ Dividir</button>
+        </div>
+        
+        <div class="historico">
+            <h3>📜 Histórico</h3>
+            <div id="historico"></div>
+        </div>
+    </div>
+    
+    <script>
+        console.log('=== CALCULADORA COM FUNÇÕES ===\n');
+        
+        let historico = [];
+        
+        // Funções de operações matemáticas
+        function somar(a, b) {
+            console.log(`Somando: ${a} + ${b}`);
+            return a + b;
+        }
+        
+        function subtrair(a, b) {
+            console.log(`Subtraindo: ${a} - ${b}`);
+            return a - b;
+        }
+        
+        function multiplicar(a, b) {
+            console.log(`Multiplicando: ${a} × ${b}`);
+            return a * b;
+        }
+        
+        function dividir(a, b) {
+            if (b === 0) {
+                console.error('Erro: Divisão por zero!');
+                return 'Erro';
+            }
+            console.log(`Dividindo: ${a} ÷ ${b}`);
+            return a / b;
+        }
+        
+        // Função para formatar resultado
+        function formatarResultado(valor) {
+            if (valor === 'Erro') return valor;
+            return typeof valor === 'number' ? valor.toFixed(2) : valor;
+        }
+        
+        // Função para obter símbolo da operação
+        function obterSimbolo(operacao) {
+            const simbolos = {
+                'somar': '+',
+                'subtrair': '-',
+                'multiplicar': '×',
+                'dividir': '÷'
+            };
+            return simbolos[operacao] || '?';
+        }
+        
+        // Função principal de cálculo
+        function calcular(operacao) {
+            const num1 = parseFloat(document.getElementById('num1').value);
+            const num2 = parseFloat(document.getElementById('num2').value);
+            
+            let resultado;
+            
+            switch(operacao) {
+                case 'somar':
+                    resultado = somar(num1, num2);
+                    break;
+                case 'subtrair':
+                    resultado = subtrair(num1, num2);
+                    break;
+                case 'multiplicar':
+                    resultado = multiplicar(num1, num2);
+                    break;
+                case 'dividir':
+                    resultado = dividir(num1, num2);
+                    break;
+                default:
+                    resultado = 'Operação inválida';
+            }
+            
+            // Atualizar display
+            document.getElementById('display').textContent = formatarResultado(resultado);
+            
+            // Adicionar ao histórico
+            const simbolo = obterSimbolo(operacao);
+            const operacaoTexto = `${num1} ${simbolo} ${num2} = ${formatarResultado(resultado)}`;
+            adicionarHistorico(operacaoTexto);
+            
+            console.log(`Resultado: ${resultado}\n`);
+        }
+        
+        // Função para adicionar ao histórico
+        function adicionarHistorico(operacao) {
+            historico.unshift(operacao);
+            
+            if (historico.length > 10) {
+                historico.pop();
+            }
+            
+            atualizarHistorico();
+        }
+        
+        // Função para atualizar exibição do histórico
+        function atualizarHistorico() {
+            const divHistorico = document.getElementById('historico');
+            
+            if (historico.length === 0) {
+                divHistorico.innerHTML = '<p style="color: #999;">Nenhuma operação ainda</p>';
+                return;
+            }
+            
+            divHistorico.innerHTML = historico
+                .map(op => `<div class="historico-item">${op}</div>`)
+                .join('');
+        }
+        
+        // Inicializar histórico
+        atualizarHistorico();
+        
+        // Permitir Enter nos inputs
+        document.getElementById('num1').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') calcular('somar');
+        });
+        
+        document.getElementById('num2').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') calcular('somar');
+        });
+        
+        console.log('Calculadora pronta! Digite números e clique nos botões.');
+        console.log('Todas as operações são feitas usando funções separadas.\n');
+    </script>
+</body>
+</html>

@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exemplo 2 - Operações com Variáveis</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 40px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+        h1 {
+            color: #667eea;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .secao {
+            margin: 25px 0;
+            padding: 20px;
+            background-color: #f8f9fa;
+            border-radius: 10px;
+            border-left: 5px solid #667eea;
+        }
+        .secao h2 {
+            color: #764ba2;
+            margin-top: 0;
+        }
+        .operacao {
+            background-color: white;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 5px;
+            font-size: 18px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .resultado {
+            background-color: #667eea;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-weight: bold;
+        }
+        code {
+            background-color: #e9ecef;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-family: 'Courier New', monospace;
+            color: #d63384;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🧮 Operações com Variáveis</h1>
+        
+        <div id="conteudo"></div>
+    </div>
+    
+    <script>
+        console.log('=== OPERAÇÕES COM VARIÁVEIS ===\n');
+        
+        // OPERAÇÕES MATEMÁTICAS
+        console.log('--- OPERAÇÕES MATEMÁTICAS ---');
+        let a = 20;
+        let b = 8;
+        
+        let soma = a + b;
+        let subtracao = a - b;
+        let multiplicacao = a * b;
+        let divisao = a / b;
+        let resto = a % b;
+        
+        console.log(`${a} + ${b} = ${soma}`);
+        console.log(`${a} - ${b} = ${subtracao}`);
+        console.log(`${a} × ${b} = ${multiplicacao}`);
+        console.log(`${a} ÷ ${b} = ${divisao}`);
+        console.log(`${a} % ${b} = ${resto} (resto da divisão)`);
+        console.log('');
+        
+        // CONCATENAÇÃO DE STRINGS
+        console.log('--- CONCATENAÇÃO DE STRINGS ---');
+        let nome = 'João';
+        let sobrenome = 'Silva';
+        
+        // Forma 1: Com +
+        let nomeCompleto1 = nome + ' ' + sobrenome;
+        console.log('Com +:', nomeCompleto1);
+        
+        // Forma 2: Template string
+        let nomeCompleto2 = `${nome} ${sobrenome}`;
+        console.log('Com template string:', nomeCompleto2);
+        
+        let idade = 16;
+        let apresentacao = `Olá! Meu nome é ${nome} e tenho ${idade} anos.`;
+        console.log(apresentacao);
+        console.log('');
+        
+        // OPERAÇÕES COM STRINGS E NUMBERS
+        console.log('--- CUIDADO: STRINGS + NUMBERS ---');
+        let numero = 10;
+        let texto = '5';
+        
+        console.log('numero:', numero, '(tipo:', typeof numero + ')');
+        console.log('texto:', texto, '(tipo:', typeof texto + ')');
+        console.log('numero + texto =', numero + texto, '(concatena!)');
+        console.log('numero + Number(texto) =', numero + Number(texto), '(soma!)');
+        console.log('');
+        
+        // INCREMENTO E DECREMENTO
+        console.log('--- INCREMENTO E DECREMENTO ---');
+        let contador = 10;
+        console.log('Valor inicial:', contador);
+        
+        contador = contador + 1;
+        console.log('Depois de +1:', contador);
+        
+        contador += 5; // Atalho para contador = contador + 5
+        console.log('Depois de +5:', contador);
+        
+        contador -= 3; // Atalho para contador = contador - 3
+        console.log('Depois de -3:', contador);
+        
+        contador *= 2; // Atalho para contador = contador * 2
+        console.log('Depois de ×2:', contador);
+        
+        // Mostrar na página
+        const conteudo = document.getElementById('conteudo');
+        conteudo.innerHTML = `
+            <div class="secao">
+                <h2>📊 Operações Matemáticas</h2>
+                <div class="operacao">
+                    <span><code>${a} + ${b}</code></span>
+                    <span class="resultado">${soma}</span>
+                </div>
+                <div class="operacao">
+                    <span><code>${a} - ${b}</code></span>
+                    <span class="resultado">${subtracao}</span>
+                </div>
+                <div class="operacao">
+                    <span><code>${a} × ${b}</code></span>
+                    <span class="resultado">${multiplicacao}</span>
+                </div>
+                <div class="operacao">
+                    <span><code>${a} ÷ ${b}</code></span>
+                    <span class="resultado">${divisao.toFixed(2)}</span>
+                </div>
+                <div class="operacao">
+                    <span><code>${a} % ${b}</code> (resto)</span>
+                    <span class="resultado">${resto}</span>
+                </div>
+            </div>
+            
+            <div class="secao">
+                <h2>📝 Concatenação de Strings</h2>
+                <div class="operacao">
+                    <span>Nome + Sobrenome</span>
+                    <span class="resultado">${nomeCompleto1}</span>
+                </div>
+                <div class="operacao">
+                    <span>Apresentação</span>
+                    <span class="resultado">${apresentacao}</span>
+                </div>
+            </div>
+            
+            <div class="secao">
+                <h2>⚠️ String + Number</h2>
+                <div class="operacao">
+                    <span><code>${numero} + "${texto}"</code> (concatena)</span>
+                    <span class="resultado">${numero + texto}</span>
+                </div>
+                <div class="operacao">
+                    <span><code>${numero} + Number("${texto}")</code> (soma)</span>
+                    <span class="resultado">${numero + Number(texto)}</span>
+                </div>
+            </div>
+        `;
+    </script>
+</body>
+</html>

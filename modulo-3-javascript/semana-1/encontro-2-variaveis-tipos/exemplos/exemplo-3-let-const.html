@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exemplo 3 - Let vs Const</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 40px;
+            background-color: #1a1a2e;
+            color: white;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        h1 {
+            text-align: center;
+            color: #16c79a;
+            font-size: 36px;
+        }
+        .exemplo {
+            background-color: #16213e;
+            padding: 25px;
+            margin: 20px 0;
+            border-radius: 10px;
+            border-left: 5px solid #16c79a;
+        }
+        .exemplo h2 {
+            color: #16c79a;
+            margin-top: 0;
+        }
+        .codigo {
+            background-color: #0f3460;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 10px 0;
+            font-family: 'Courier New', monospace;
+        }
+        .sucesso {
+            color: #16c79a;
+            font-weight: bold;
+        }
+        .erro {
+            color: #e94560;
+            font-weight: bold;
+        }
+        .aviso {
+            background-color: #e94560;
+            color: white;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 10px 0;
+        }
+        button {
+            background-color: #16c79a;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 5px;
+        }
+        button:hover {
+            background-color: #11a67d;
+        }
+        #resultado {
+            background-color: #0f3460;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+            min-height: 100px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🔄 Let vs Const</h1>
+        
+        <div class="exemplo">
+            <h2>✅ LET - Pode mudar</h2>
+            <div class="codigo">
+                let pontos = 0;<br>
+                pontos = 10; <span class="sucesso">// ✓ Funciona!</span><br>
+                pontos = 20; <span class="sucesso">// ✓ Funciona!</span>
+            </div>
+            <button onclick="testarLet()">Testar LET</button>
+        </div>
+        
+        <div class="exemplo">
+            <h2>🔒 CONST - NÃO pode mudar</h2>
+            <div class="codigo">
+                const PI = 3.14;<br>
+                PI = 3.15; <span class="erro">// ✗ ERRO!</span>
+            </div>
+            <button onclick="testarConst()">Testar CONST (vai dar erro!)</button>
+        </div>
+        
+        <div class="exemplo">
+            <h2>💡 Quando usar cada um?</h2>
+            <div class="codigo">
+                <span class="sucesso">const</span> nome = 'Maria'; <span style="color: #888">// Nome não muda</span><br>
+                <span class="sucesso">const</span> PI = 3.14; <span style="color: #888">// PI é constante</span><br>
+                <span class="sucesso">const</span> anoNascimento = 2008; <span style="color: #888">// Não muda</span><br>
+                <br>
+                <span class="sucesso">let</span> idade = 16; <span style="color: #888">// Idade muda todo ano</span><br>
+                <span class="sucesso">let</span> pontos = 0; <span style="color: #888">// Pontos mudam no jogo</span><br>
+                <span class="sucesso">let</span> contador = 1; <span style="color: #888">// Contador aumenta</span>
+            </div>
+        </div>
+        
+        <div class="exemplo">
+            <h2>🎮 Exemplo Prático: Contador</h2>
+            <p>Clique nos botões para ver let em ação:</p>
+            <button onclick="aumentar()">➕ Aumentar</button>
+            <button onclick="diminuir()">➖ Diminuir</button>
+            <button onclick="resetar()">🔄 Resetar</button>
+        </div>
+        
+        <div id="resultado"></div>
+    </div>
+    
+    <script>
+        console.log('=== LET vs CONST ===\n');
+        
+        // Exemplo com LET
+        console.log('--- Testando LET ---');
+        let pontos = 0;
+        console.log('Valor inicial:', pontos);
+        
+        pontos = 10;
+        console.log('Depois de mudar:', pontos);
+        
+        pontos = 20;
+        console.log('Mudou de novo:', pontos);
+        console.log('✓ LET permite mudanças!\n');
+        
+        // Exemplo com CONST
+        console.log('--- Testando CONST ---');
+        const PI = 3.14;
+        console.log('Valor de PI:', PI);
+        console.log('✓ CONST não permite mudanças!\n');
+        
+        // Contador para exemplo prático
+        let contador = 0;
+        
+        function testarLet() {
+            let valor = 0;
+            console.log('Valor inicial:', valor);
+            
+            valor = 10;
+            console.log('Mudou para:', valor);
+            
+            valor = 20;
+            console.log('Mudou para:', valor);
+            
+            document.getElementById('resultado').innerHTML = `
+                <h3 class="sucesso">✓ LET funcionou!</h3>
+                <p>O valor mudou de 0 → 10 → 20</p>
+                <p>Veja o console para mais detalhes!</p>
+            `;
+        }
+        
+        function testarConst() {
+            try {
+                const VALOR_FIXO = 100;
+                console.log('Valor da constante:', VALOR_FIXO);
+                
+                // Isso vai dar erro!
+                VALOR_FIXO = 200;
+                
+            } catch (erro) {
+                console.error('ERRO:', erro.message);
+                
+                document.getElementById('resultado').innerHTML = `
+                    <div class="aviso">
+                        <h3>✗ ERRO ao tentar mudar CONST!</h3>
+                        <p><strong>Mensagem:</strong> ${erro.message}</p>
+                        <p>CONST não pode ser alterado depois de definido!</p>
+                    </div>
+                `;
+            }
+        }
+        
+        function aumentar() {
+            contador++;
+            atualizarContador();
+            console.log('Contador aumentou para:', contador);
+        }
+        
+        function diminuir() {
+            contador--;
+            atualizarContador();
+            console.log('Contador diminuiu para:', contador);
+        }
+        
+        function resetar() {
+            contador = 0;
+            atualizarContador();
+            console.log('Contador resetado para:', contador);
+        }
+        
+        function atualizarContador() {
+            document.getElementById('resultado').innerHTML = `
+                <h3 class="sucesso">Contador: ${contador}</h3>
+                <p>Usamos <strong>let</strong> porque o valor muda!</p>
+                <div class="codigo">
+                    let contador = ${contador};
+                </div>
+            `;
+        }
+        
+        // Mostrar valor inicial
+        atualizarContador();
+    </script>
+</body>
+</html>
