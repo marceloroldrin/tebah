@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exemplo 1 - Seletores DOM</title>
+    <style>
+        body { font-family: Arial; padding: 40px; background: #f5f5f5; }
+        .container { max-width: 800px; margin: 0 auto; background: white; padding: 30px; border-radius: 10px; }
+        h1 { color: #2196F3; }
+        .box { padding: 20px; margin: 15px 0; border-radius: 8px; border-left: 5px solid #2196F3; background: #e3f2fd; }
+        button { background: #2196F3; color: white; border: none; padding: 10px 20px; margin: 5px; border-radius: 5px; cursor: pointer; }
+        button:hover { background: #1976D2; }
+        .destaque { background: #fff3e0; border-left-color: #ff9800; }
+        .resultado { background: #f5f5f5; padding: 15px; margin: 10px 0; border-radius: 5px; font-family: monospace; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 id="titulo">🎯 Seletores DOM</h1>
+        
+        <div class="box" id="box1">
+            <h3>Caixa 1</h3>
+            <p>Este é o conteúdo da primeira caixa.</p>
+        </div>
+        
+        <div class="box" id="box2">
+            <h3>Caixa 2</h3>
+            <p>Este é o conteúdo da segunda caixa.</p>
+        </div>
+        
+        <div class="box" id="box3">
+            <h3>Caixa 3</h3>
+            <p>Este é o conteúdo da terceira caixa.</p>
+        </div>
+        
+        <button onclick="selecionarPorId()">Selecionar por ID</button>
+        <button onclick="selecionarPorClasse()">Selecionar por Classe</button>
+        <button onclick="modificarConteudo()">Modificar Conteúdo</button>
+        <button onclick="resetar()">Resetar</button>
+        
+        <div id="resultado" class="resultado"></div>
+    </div>
+    
+    <script>
+        console.log('=== SELETORES DOM ===\n');
+        
+        function selecionarPorId() {
+            const box1 = document.getElementById('box1');
+            box1.classList.add('destaque');
+            
+            mostrarResultado('Selecionado: #box1 (por ID)');
+            console.log('Elemento selecionado por ID:', box1);
+        }
+        
+        function selecionarPorClasse() {
+            const todasBoxes = document.querySelectorAll('.box');
+            todasBoxes.forEach((box, index) => {
+                box.classList.add('destaque');
+            });
+            
+            mostrarResultado(`Selecionados: ${todasBoxes.length} elementos com classe .box`);
+            console.log('Elementos selecionados por classe:', todasBoxes);
+        }
+        
+        function modificarConteudo() {
+            const titulo = document.getElementById('titulo');
+            titulo.textContent = '✨ Título Modificado!';
+            
+            const box2 = document.getElementById('box2');
+            box2.querySelector('p').innerHTML = '<strong>Conteúdo modificado</strong> com <em>innerHTML</em>!';
+            
+            mostrarResultado('Conteúdo modificado com textContent e innerHTML');
+            console.log('Conteúdo modificado');
+        }
+        
+        function resetar() {
+            const titulo = document.getElementById('titulo');
+            titulo.textContent = '🎯 Seletores DOM';
+            
+            const todasBoxes = document.querySelectorAll('.box');
+            todasBoxes.forEach(box => {
+                box.classList.remove('destaque');
+            });
+            
+            const box2 = document.getElementById('box2');
+            box2.querySelector('p').textContent = 'Este é o conteúdo da segunda caixa.';
+            
+            mostrarResultado('Tudo resetado!');
+            console.log('Resetado');
+        }
+        
+        function mostrarResultado(mensagem) {
+            const div = document.getElementById('resultado');
+            div.textContent = `✓ ${mensagem}`;
+        }
+    </script>
+</body>
+</html>
