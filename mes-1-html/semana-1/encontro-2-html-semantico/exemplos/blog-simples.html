@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Simples - HTML Semântico</title>
+</head>
+<body>
+    <header>
+        <h1>Meu Blog de Tecnologia</h1>
+        <nav>
+            <ul>
+                <li><a href="#home">Início</a></li>
+                <li><a href="#artigos">Artigos</a></li>
+                <li><a href="#sobre">Sobre</a></li>
+                <li><a href="#contato">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <main>
+        <section id="destaque">
+            <h2>Artigo em Destaque</h2>
+            <article>
+                <header>
+                    <h3>Introdução ao HTML Semântico</h3>
+                    <p>
+                        Publicado em <time datetime="2025-02-10">10 de fevereiro de 2025</time>
+                        por <strong>João Silva</strong>
+                    </p>
+                </header>
+                
+                <figure>
+                    <img src="https://via.placeholder.com/600x300" alt="Código HTML em um editor">
+                    <figcaption>Exemplo de código HTML semântico</figcaption>
+                </figure>
+                
+                <p>
+                    HTML semântico é uma forma de escrever código que descreve o 
+                    <em>significado</em> do conteúdo, não apenas sua aparência.
+                </p>
+                
+                <p>
+                    Usar tags como <code><header></code>, <code><nav></code>, 
+                    e <code><article></code> torna o código mais legível e acessível.
+                </p>
+                
+                <footer>
+                    <p>Tags: <mark>HTML</mark>, <mark>Semântica</mark>, <mark>Web</mark></p>
+                </footer>
+            </article>
+        </section>
+        
+        <section id="artigos">
+            <h2>Artigos Recentes</h2>
+            
+            <article>
+                <h3>CSS: Estilizando a Web</h3>
+                <p>
+                    Publicado em <time datetime="2025-02-08">8 de fevereiro de 2025</time>
+                </p>
+                <p>Aprenda os fundamentos de CSS e como estilizar suas páginas web...</p>
+                <a href="#artigo2">Ler mais</a>
+            </article>
+            
+            <article>
+                <h3>JavaScript para Iniciantes</h3>
+                <p>
+                    Publicado em <time datetime="2025-02-05">5 de fevereiro de 2025</time>
+                </p>
+                <p>Descubra como adicionar interatividade às suas páginas...</p>
+                <a href="#artigo3">Ler mais</a>
+            </article>
+        </section>
+        
+        <aside>
+            <h2>Sobre o Autor</h2>
+            <p>
+                João Silva é desenvolvedor web e apaixonado por ensinar programação.
+            </p>
+            
+            <h3>Categorias</h3>
+            <ul>
+                <li><a href="#html">HTML</a></li>
+                <li><a href="#css">CSS</a></li>
+                <li><a href="#javascript">JavaScript</a></li>
+            </ul>
+        </aside>
+    </main>
+    
+    <footer>
+        <p>© 2025 Meu Blog de Tecnologia. Todos os direitos reservados.</p>
+        <nav>
+            <ul>
+                <li><a href="#privacidade">Privacidade</a></li>
+                <li><a href="#termos">Termos de Uso</a></li>
+            </ul>
+        </nav>
+    </footer>
+</body>
+</html>

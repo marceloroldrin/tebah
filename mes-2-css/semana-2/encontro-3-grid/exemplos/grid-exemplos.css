@@ -1,0 +1,42 @@
+.pratos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
+.prato-card {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.layout-principal {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.sidebar {
+    background-color: #f5f5dc;
+    padding: 20px;
+}
+
+.conteudo {
+    padding: 20px;
+}
+
+.galeria {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+}
+
+.galeria-item {
+    aspect-ratio: 1;
+    background-color: #ddd;
+    border-radius: 8px;
+}

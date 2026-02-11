@@ -1,0 +1,86 @@
+/* Componente: Menu de Navegação */
+.menu { }
+
+.menu__lista {
+    display: flex;
+    gap: 20px;
+    list-style: none;
+}
+
+.menu__item { }
+
+.menu__link {
+    color: white;
+    text-decoration: none;
+}
+
+.menu__link--ativo {
+    border-bottom: 2px solid white;
+}
+
+/* Componente: Card de Prato */
+.prato-card {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.prato-card--destaque {
+    border: 3px solid #d2691e;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.prato-card__titulo {
+    color: #8b4513;
+    margin-top: 0;
+}
+
+.prato-card__descricao {
+    color: #666;
+    line-height: 1.6;
+}
+
+.prato-card__preco {
+    display: block;
+    font-size: 1.5em;
+    color: #d2691e;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.prato-card__preco--promocao {
+    color: #ff0000;
+}
+
+/* Componente: Seção */
+.secao {
+    margin-bottom: 40px;
+}
+
+.secao__titulo {
+    color: #d2691e;
+    border-bottom: 3px solid #d2691e;
+    padding-bottom: 10px;
+}
+
+.secao__conteudo {
+    padding: 20px 0;
+}
+
+/* Componente: Botão */
+.botao {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.botao--primario {
+    background-color: #d2691e;
+    color: white;
+}
+
+.botao--secundario {
+    background-color: #8b4513;
+    color: white;
+}

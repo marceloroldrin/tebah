@@ -1,0 +1,77 @@
+/* Mobile First - Estilos base para mobile */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    padding: 10px;
+}
+
+.pratos-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 15px;
+}
+
+nav ul {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+header h1 {
+    font-size: 1.5em;
+}
+
+/* Tablet - a partir de 768px */
+@media (min-width: 768px) {
+    .container {
+        padding: 20px;
+    }
+
+    .pratos-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+
+    nav ul {
+        flex-direction: row;
+        justify-content: center;
+        gap: 20px;
+    }
+
+    header h1 {
+        font-size: 2em;
+    }
+}
+
+/* Desktop - a partir de 1024px */
+@media (min-width: 1024px) {
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 40px;
+    }
+
+    .pratos-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 30px;
+    }
+
+    header h1 {
+        font-size: 2.5em;
+    }
+
+    nav ul {
+        gap: 30px;
+    }
+}
+
+/* Desktop grande - a partir de 1440px */
+@media (min-width: 1440px) {
+    .pratos-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
