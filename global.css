@@ -21,6 +21,10 @@ body {
     margin: 0 auto;
 }
 
+section + section {
+    margin-top: 2rem;
+}
+
 /* Estrutura de Exemplos para Guias */
 .example-container {
     background: var(--panel);
@@ -50,6 +54,146 @@ h1, h2, h3 {
 p {
     margin-bottom: 1.5rem;
     color: #9a9a95;
+}
+
+a {
+    color: var(--primary);
+}
+
+ul {
+    padding-left: 1.25rem;
+}
+
+li + li {
+    margin-top: 0.5rem;
+}
+
+/* Guide content */
+.guide-header {
+    margin-bottom: 2.5rem;
+}
+
+.guide-kicker {
+    color: var(--primary);
+    font-size: 0.9rem;
+    letter-spacing: 0.08em;
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+}
+
+/* Buttons and button-like links */
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s;
+    font-family: inherit;
+    text-decoration: none;
+}
+
+.btn--primary {
+    background-color: var(--primary);
+    color: var(--bg);
+}
+
+.btn--primary:hover {
+    opacity: 0.9;
+}
+
+.btn--secondary {
+    background-color: transparent;
+    border-color: var(--primary);
+    color: var(--primary);
+}
+
+.btn--secondary:hover {
+    background-color: rgba(54, 232, 143, 0.1);
+}
+
+/* Reusable content components */
+.card {
+    background: linear-gradient(135deg, rgba(54, 232, 143, 0.12), rgba(54, 232, 143, 0.03));
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    max-width: 320px;
+    padding: 1.25rem;
+}
+
+.card h3 {
+    margin: 0 0 0.75rem;
+}
+
+.card p {
+    margin: 0;
+}
+
+.card__tag {
+    background: rgba(54, 232, 143, 0.14);
+    border: 1px solid rgba(54, 232, 143, 0.25);
+    border-radius: 999px;
+    color: var(--primary);
+    display: inline-block;
+    font-size: 0.78rem;
+    margin-bottom: 0.9rem;
+    padding: 0.25rem 0.65rem;
+}
+
+.menu {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+}
+
+.menu__link {
+    border-bottom: 2px solid transparent;
+    color: var(--text);
+    font-weight: 600;
+    padding-bottom: 0.2rem;
+    text-decoration: none;
+    transition: color 0.3s ease, border-bottom 0.3s ease;
+}
+
+.menu__link:hover {
+    border-bottom: 2px solid var(--primary);
+    color: var(--primary);
+}
+
+.banner {
+    background: rgba(54, 232, 143, 0.12);
+    border: 1px solid rgba(54, 232, 143, 0.3);
+    border-radius: 14px;
+    color: var(--text);
+    max-width: 420px;
+    padding: 1rem 1.25rem;
+    text-align: center;
+}
+
+.badge {
+    background: var(--primary);
+    border-radius: 999px;
+    color: var(--bg);
+    display: inline-block;
+    font-size: 1rem;
+    font-weight: 800;
+    letter-spacing: 0.04em;
+    padding: 0.8rem 1.15rem;
+}
+
+.note {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px dashed var(--border);
+    border-radius: 14px;
+    max-width: 460px;
+    padding: 1rem 1.2rem;
+}
+
+.note p {
+    margin: 0.35rem 0;
+    text-align: center;
 }
 
 /* Estilo das Abas */
@@ -119,4 +263,17 @@ pre[class*="language-"] {
 pre code {
     background: transparent !important;
     color: inherit !important;
+}
+
+@media (max-width: 640px) {
+    .card,
+    .banner,
+    .note {
+        max-width: 100%;
+    }
+
+    .menu {
+        align-items: center;
+        flex-direction: column;
+    }
 }

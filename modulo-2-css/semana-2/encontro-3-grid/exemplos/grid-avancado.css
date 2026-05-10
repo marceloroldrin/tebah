@@ -1,24 +1,3 @@
-/* Estilo dos Exemplos - Guia CSS Avançado */
-.example-container {
-    background: var(--panel);
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    padding: 20px;
-    margin-bottom: 30px;
-}
-
-.example-visual {
-    background: var(--bg);
-    border: 1px solid var(--border);
-    border-radius: 4px;
-    padding: 20px;
-    margin-bottom: 20px;
-    min-height: 120px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
 /* SECTION 1: BENTO GRID (MOSAICO) */
 .bento-grid {
     display: grid;

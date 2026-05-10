@@ -93,36 +93,6 @@
     padding: 20px 0;
 }
 
-/* 4. Componente: Botão */
-.botao {
-    padding: 10px 20px;
-    border: 1px solid transparent;
-    border-radius: 4px;
-    cursor: pointer;
-    font-weight: 600;
-    transition: all 0.3s;
-    font-family: inherit;
-}
-
-.botao--primario {
-    background-color: var(--primary);
-    color: var(--bg);
-}
-
-.botao--primario:hover {
-    opacity: 0.9;
-}
-
-.botao--secundario {
-    background-color: transparent;
-    border-color: var(--primary);
-    color: var(--primary);
-}
-
-.botao--secundario:hover {
-    background-color: rgba(54, 232, 143, 0.1);
-}
-
 /* 5. NOVO: Alerta de Notificação */
 .alerta {
     padding: 15px 20px;
