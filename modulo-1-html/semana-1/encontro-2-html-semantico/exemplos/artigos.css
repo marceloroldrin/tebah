@@ -1,0 +1,39 @@
+body {
+    background-color: #ffe96e98;
+    color: black;
+}
+
+a {
+    color: inherit;
+    transition: all .3s ease;
+    text-decoration: none;
+}
+
+a:hover {
+    color: rgb(156, 0, 125);
+    font-weight: bold;
+    font-size: 2em;
+    background-color: azure;
+}
+
+.informatica {
+    background-color: green;
+    font-size: 2rem;
+}
+
+.engrenagem {
+    display: none;
+}
+
+.tebah {
+    background-color: blue;
+}
+
+p.html,
+h2.html {
+    background-color: red;
+}
+
+article p {
+    background-color: yellow;
+}

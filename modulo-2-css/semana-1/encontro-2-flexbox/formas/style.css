@@ -1,0 +1,47 @@
+div{
+    width: 150px;
+    height: 150px;
+}
+
+.amarelo {
+    background-color: yellow;
+}
+
+.azul {
+    background-color: blue;
+}
+
+.preta {
+    background-color: black;
+}
+
+.circulo {
+    border-radius: 50%;
+}
+
+.retangulo {
+    width: 200px;
+    height: 100px;
+}
+
+.roxo{
+    background-color: purple;
+}
+
+.semaforo{
+    height: auto;
+    background-color: black;
+    padding: 20px 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    border-radius: 20px 40px;
+}
+
+.verde{
+    background-color: green;
+}
+
+.vermelho{
+    background-color: red;
+}

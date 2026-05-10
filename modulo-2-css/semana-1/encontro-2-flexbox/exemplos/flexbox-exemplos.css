@@ -60,3 +60,20 @@ nav a:hover {
     align-items: center;
     min-height: 200px;
 }
+
+/* Exemplo de 3 Colunas Equitativas */
+.container-3-colunas {
+    display: flex; /* Define o container como flexbox */
+    flex-direction: row; /* Alinha os itens em linha (padrão) */
+    flex-wrap: wrap; /* Permite que os itens pulem para a próxima linha */
+    gap: 24px; /* Espaçamento entre as colunas */
+    width: 100%;
+}
+
+.coluna {
+    flex: 1 1 calc(33.333% - 24px); /* Define 1/3 da largura menos o espaçamento */
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+}

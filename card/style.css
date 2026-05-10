@@ -1,0 +1,45 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #000a2e;
+    padding: 24px;
+}
+
+.card {
+    width: 320px;
+    margin-bottom: 24px;
+    background-color: white;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.card img {
+    width: 100%;
+}
+
+.card h3 {
+    font-size: 12px;
+    margin: 12px 0;
+    text-transform: uppercase;
+    font-weight: 200;
+}
+
+.card h1 {
+    font-size: 24px;
+    margin-bottom: 8px;
+    line-height: .9;
+}
+
+.card p {
+    font-size: 16px;
+    line-height: 1.4;
+}
+
+.card div{
+    padding: 0 24px 24px;
+}

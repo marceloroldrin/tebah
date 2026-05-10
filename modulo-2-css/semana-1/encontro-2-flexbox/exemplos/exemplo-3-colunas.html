@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exemplo Flexbox - 3 Colunas</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #6366f1;
+            --primary-hover: #4f46e5;
+            --bg: #0f172a;
+            --card-bg: #1e293b;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg);
+            color: var(--text-main);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container-3-colunas {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap; /* Permite que os itens pulem para a próxima linha */
+            gap: 24px;
+            max-width: 1200px;
+            width: 100%;
+        }
+
+        .coluna {
+            flex: 1 1 calc(33.333% - 24px); /* Define 1/3 da largura menos o espaçamento */
+            /* O segredo para colunas iguais: todas crescem e encolhem igualmente */
+            background: var(--card-bg);
+            padding: 40px;
+            border-radius: 24px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            cursor: default;
+        }
+
+        .coluna:hover {
+            transform: translateY(-8px);
+            border-color: var(--primary);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+            background: rgba(30, 41, 59, 0.8);
+        }
+
+        .icon {
+            width: 48px;
+            height: 48px;
+            background: rgba(99, 102, 241, 0.1);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            font-size: 24px;
+            margin-bottom: 8px;
+        }
+
+        .titulo {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: white;
+        }
+
+        .descricao {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            color: var(--text-muted);
+        }
+
+        /* Responsividade básica */
+        @media (max-width: 768px) {
+            .container-3-colunas {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container-3-colunas">
+        <!-- Coluna 1 -->
+        <article class="coluna">
+            <div class="icon">🚀</div>
+            <h2 class="titulo">Performance</h2>
+            <p class="descricao">
+                Layouts otimizados que carregam instantaneamente, garantindo a melhor experiência para o usuário final.
+            </p>
+        </article>
+
+        <!-- Coluna 2 -->
+        <article class="coluna">
+            <div class="icon">🎨</div>
+            <h2 class="titulo">Design Moderno</h2>
+            <p class="descricao">
+                Estética premium com foco em legibilidade, contraste e micro-interações que encantam.
+            </p>
+        </article>
+
+        <!-- Coluna 3 -->
+        <article class="coluna">
+            <div class="icon">📱</div>
+            <h2 class="titulo">Responsivo</h2>
+            <p class="descricao">
+                Totalmente adaptável a qualquer tamanho de tela, do mobile ao desktop ultra-wide.
+            </p>
+        </article>
+
+        <!-- Coluna 3 -->
+        <article class="coluna">
+            <div class="icon">📱</div>
+            <h2 class="titulo">Responsivo</h2>
+            <p class="descricao">
+                Totalmente adaptável a qualquer tamanho de tela, do mobile ao desktop ultra-wide.
+            </p>
+        </article>
+
+        <!-- Coluna 3 -->
+        <article class="coluna">
+            <div class="icon">📱</div>
+            <h2 class="titulo">Responsivo</h2>
+            <p class="descricao">
+                Totalmente adaptável a qualquer tamanho de tela, do mobile ao desktop ultra-wide.
+            </p>
+        </article>
+
+        <!-- Coluna 3 -->
+        <article class="coluna">
+            <div class="icon">📱</div>
+            <h2 class="titulo">Responsivo</h2>
+            <p class="descricao">
+                Totalmente adaptável a qualquer tamanho de tela, do mobile ao desktop ultra-wide.
+            </p>
+        </article>
+
+        <!-- Coluna 3 -->
+        <article class="coluna">
+            <div class="icon">📱</div>
+            <h2 class="titulo">Responsivo</h2>
+            <p class="descricao">
+                Totalmente adaptável a qualquer tamanho de tela, do mobile ao desktop ultra-wide.
+            </p>
+        </article>
+    </div>
+
+</body>
+
+</html>
