@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exemplos de CSS Grid - Tebah</title>
+    <link rel="stylesheet" href="grid-exemplos.css">
+</head>
+<body>
+
+    <header style="text-align: center; padding: 20px;">
+        <h1>Demonstração de CSS Grid</h1>
+    </header>
+
+    <div class="layout-principal">
+        <aside class="sidebar">
+            <h2>Sidebar</h2>
+            <nav>
+                <ul>
+                    <li><a href="#">Início</a></li>
+                    <li><a href="#">Pratos</a></li>
+                    <li><a href="#">Galeria</a></li>
+                    <li><a href="#">Contato</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <main class="conteudo">
+            <section>
+                <h2>Grid de Pratos (Auto-fit)</h2>
+                <div class="pratos-grid">
+                    <article class="prato-card">
+                        <h3>Prato 1</h3>
+                        <p>Descrição do prato delicioso com ingredientes frescos.</p>
+                    </article>
+                    <article class="prato-card">
+                        <h3>Prato 2</h3>
+                        <p>Uma opção vegetariana cheia de sabor e cor.</p>
+                    </article>
+                    <article class="prato-card">
+                        <h3>Prato 3</h3>
+                        <p>Especialidade da casa com temperos exclusivos.</p>
+                    </article>
+                    <article class="prato-card">
+                        <h3>Prato 4</h3>
+                        <p>Sobremesa artesanal para fechar com chave de ouro.</p>
+                    </article>
+                </div>
+            </section>
+
+            <hr style="margin: 40px 0;">
+
+            <section>
+                <h2>Galeria de Imagens (Fixed Columns)</h2>
+                <div class="galeria">
+                    <div class="galeria-item"></div>
+                    <div class="galeria-item"></div>
+                    <div class="galeria-item"></div>
+                    <div class="galeria-item"></div>
+                    <div class="galeria-item"></div>
+                    <div class="galeria-item"></div>
+                    <div class="galeria-item"></div>
+                    <div class="galeria-item"></div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+</body>
+</html>

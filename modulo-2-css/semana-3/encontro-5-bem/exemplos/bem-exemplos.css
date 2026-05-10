@@ -1,86 +1,206 @@
-/* Componente: Menu de Navegação */
-.menu { }
+/* 
+   Guia BEM (Block Element Modifier)
+   Baseado no design system global.css
+*/
+
+/* 1. Componente: Menu de Navegação */
+.menu {
+    width: 100%;
+}
 
 .menu__lista {
     display: flex;
     gap: 20px;
     list-style: none;
+    padding: 0;
+    margin: 0;
 }
 
-.menu__item { }
+.menu__item {
+    display: inline-block;
+}
 
 .menu__link {
-    color: white;
+    color: var(--text);
     text-decoration: none;
+    padding: 8px 12px;
+    transition: color 0.3s;
+}
+
+.menu__link:hover {
+    color: var(--primary);
 }
 
 .menu__link--ativo {
-    border-bottom: 2px solid white;
+    color: var(--primary);
+    border-bottom: 2px solid var(--primary);
 }
 
-/* Componente: Card de Prato */
+/* 2. Componente: Card de Prato */
 .prato-card {
-    background-color: white;
+    background-color: var(--panel);
     padding: 20px;
     border-radius: 8px;
+    border: 1px solid var(--border);
+    max-width: 300px;
 }
 
 .prato-card--destaque {
-    border: 3px solid #d2691e;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    border: 2px solid var(--primary);
+    box-shadow: 0 4px 15px rgba(54, 232, 143, 0.2);
 }
 
 .prato-card__titulo {
-    color: #8b4513;
-    margin-top: 0;
+    color: var(--primary);
+    margin: 0 0 10px 0;
+    font-size: 1.25rem;
 }
 
 .prato-card__descricao {
-    color: #666;
-    line-height: 1.6;
+    color: #9a9a95;
+    font-size: 0.9rem;
+    line-height: 1.5;
 }
 
 .prato-card__preco {
     display: block;
-    font-size: 1.5em;
-    color: #d2691e;
+    font-size: 1.5rem;
+    color: var(--text);
     font-weight: bold;
-    margin-top: 10px;
+    margin-top: 15px;
 }
 
 .prato-card__preco--promocao {
-    color: #ff0000;
+    color: #ff5555;
 }
 
-/* Componente: Seção */
+/* 3. Componente: Seção */
 .secao {
     margin-bottom: 40px;
+    padding: 20px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
 }
 
 .secao__titulo {
-    color: #d2691e;
-    border-bottom: 3px solid #d2691e;
+    color: var(--primary);
+    border-bottom: 1px solid var(--border);
     padding-bottom: 10px;
+    margin-top: 0;
 }
 
 .secao__conteudo {
     padding: 20px 0;
 }
 
-/* Componente: Botão */
+/* 4. Componente: Botão */
 .botao {
     padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
+    border: 1px solid transparent;
+    border-radius: 4px;
     cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s;
+    font-family: inherit;
 }
 
 .botao--primario {
-    background-color: #d2691e;
-    color: white;
+    background-color: var(--primary);
+    color: var(--bg);
+}
+
+.botao--primario:hover {
+    opacity: 0.9;
 }
 
 .botao--secundario {
-    background-color: #8b4513;
-    color: white;
+    background-color: transparent;
+    border-color: var(--primary);
+    color: var(--primary);
+}
+
+.botao--secundario:hover {
+    background-color: rgba(54, 232, 143, 0.1);
+}
+
+/* 5. NOVO: Alerta de Notificação */
+.alerta {
+    padding: 15px 20px;
+    border-radius: 6px;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    border-left: 5px solid transparent;
+}
+
+.alerta--sucesso {
+    background-color: rgba(54, 232, 143, 0.1);
+    border-left-color: var(--primary);
+    color: var(--primary);
+}
+
+.alerta--erro {
+    background-color: rgba(255, 85, 85, 0.1);
+    border-left-color: #ff5555;
+    color: #ff5555;
+}
+
+.alerta__mensagem {
+    flex: 1;
+    font-weight: 500;
+}
+
+.alerta__botao-fechar {
+    background: none;
+    border: none;
+    color: inherit;
+    cursor: pointer;
+    font-size: 1.2rem;
+    opacity: 0.7;
+}
+
+/* 6. NOVO: Card de Depoimento */
+.depoimento {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    padding: 25px;
+    border-radius: 12px;
+    position: relative;
+    max-width: 400px;
+}
+
+.depoimento--centralizado {
+    text-align: center;
+}
+
+.depoimento__texto {
+    font-style: italic;
+    color: var(--text);
+    margin-bottom: 20px;
+    line-height: 1.7;
+}
+
+.depoimento__autor {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.depoimento--centralizado .depoimento__autor {
+    justify-content: center;
+    flex-direction: column;
+}
+
+.depoimento__avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid var(--primary);
+}
+
+.depoimento__nome {
+    font-weight: bold;
+    color: var(--primary);
 }

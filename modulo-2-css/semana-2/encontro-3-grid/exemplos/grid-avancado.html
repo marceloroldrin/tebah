@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guia CSS: Grid Avançado - Tebah</title>
+    <link rel="stylesheet" href="grid-avancado.css">
+    <!-- Prism.js CSS Theme -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="/global.css">
+    <script src="/global.js" defer></script>
+</head>
+
+<body>
+
+    <div class="container">
+        <header>
+            <h1>Guia Prático: CSS Grid Avançado</h1>
+            <p>Explore técnicas avançadas de layout como Bento Grids, auto-fill vs auto-fit e componentes dinâmicos que se adaptam sem media queries.</p>
+        </header>
+
+        <hr style="border: 0; border-top: 1px solid var(--border); margin: 40px 0;">
+
+        <!-- Exemplo 1: Bento Grid -->
+        <section>
+            <h2>1. Bento Grid (Mosaic)</h2>
+            <p>Utilize <code>grid-column: span X</code> e <code>grid-row: span Y</code> para criar layouts assimétricos e modernos, populares em dashboards e portfólios.</p>
+
+            <div class="example-container">
+                <div class="example-visual">
+                    <div class="bento-grid">
+                        <div class="bento-item bento-featured">
+                            <div class="overlay">
+                                <h3>Projeto Destaque</h3>
+                                <p>Exemplo de span 2x2 no grid.</p>
+                            </div>
+                        </div>
+                        <div class="bento-item">
+                            <div class="overlay">
+                                <h3>Design</h3>
+                            </div>
+                        </div>
+                        <div class="bento-item bento-tall">
+                            <div class="overlay">
+                                <h3>Performance</h3>
+                                <p>Vertical Span</p>
+                            </div>
+                        </div>
+                        <div class="bento-item">
+                            <div class="overlay">
+                                <h3>Mobile</h3>
+                            </div>
+                        </div>
+                        <div class="bento-item bento-wide">
+                            <div class="overlay">
+                                <h3>Inovação Constante</h3>
+                                <p>Horizontal Span</p>
+                            </div>
+                        </div>
+                        <div class="bento-item">
+                            <div class="overlay">
+                                <h3>SEO</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="code-tabs">
+                    <button class="tab-btn active" data-tab="html1">HTML</button>
+                    <button class="tab-btn" data-tab="css1">CSS</button>
+
+                    <div class="tab-content active" id="html1">
+                        <pre><code class="language-html">&lt;div class="bento-grid"&gt;
+    &lt;div class="bento-item bento-featured"&gt;
+        &lt;div class="overlay"&gt;
+            &lt;h3&gt;Projeto Destaque&lt;/h3&gt;
+            &lt;p&gt;Exemplo de span 2x2 no grid.&lt;/p&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="bento-item"&gt;...&lt;/div&gt;
+    &lt;div class="bento-item bento-tall"&gt;...&lt;/div&gt;
+    &lt;div class="bento-item bento-wide"&gt;...&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+                    </div>
+
+                    <div class="tab-content" id="css1">
+                        <pre><code class="language-css">.bento-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-auto-rows: 200px;
+    gap: 16px;
+}
+
+.bento-featured {
+    grid-column: span 2;
+    grid-row: span 2;
+}
+
+.bento-tall { grid-row: span 2; }
+.bento-wide { grid-column: span 2; }</code></pre>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Exemplo 2: Auto-fill vs Auto-fit -->
+        <section>
+            <h2>2. Responsividade com Auto-fill</h2>
+            <p>O <code>auto-fill</code> preenche a linha com o máximo de colunas possível, mesmo que estejam vazias, mantendo o tamanho fixo definido no <code>minmax</code>.</p>
+
+            <div class="example-container">
+                <div class="example-visual">
+                    <div class="features-grid">
+                        <div class="feature-card">
+                            <span class="feature-icon">🚀</span>
+                            <h3>Velocidade</h3>
+                            <p>Otimização de entrega de conteúdo usando técnicas modernas.</p>
+                        </div>
+                        <div class="feature-card">
+                            <span class="feature-icon">🎨</span>
+                            <h3>Estética</h3>
+                            <p>Interfaces que se adaptam ao conteúdo de forma inteligente.</p>
+                        </div>
+                        <div class="feature-card">
+                            <span class="feature-icon">🛠️</span>
+                            <h3>Suporte</h3>
+                            <p>Manutenção simplificada com código limpo e CSS moderno.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="code-tabs">
+                    <button class="tab-btn active" data-tab="html2">HTML</button>
+                    <button class="tab-btn" data-tab="css2">CSS</button>
+
+                    <div class="tab-content active" id="html2">
+                        <pre><code class="language-html">&lt;div class="features-grid"&gt;
+    &lt;div class="feature-card"&gt;
+        &lt;span class="feature-icon"&gt;🚀&lt;/span&gt;
+        &lt;h3&gt;Velocidade&lt;/h3&gt;
+        &lt;p&gt;Otimização de entrega de conteúdo...&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;!-- ... outros cards --&gt;
+&lt;/div&gt;</code></pre>
+                    </div>
+
+                    <div class="tab-content" id="css2">
+                        <pre><code class="language-css">.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 24px;
+}</code></pre>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Exemplo 3: Componentes Adaptáveis -->
+        <section>
+            <h2>3. Layouts Dinâmicos (Sem Media Queries)</h2>
+            <p>Usando <code>minmax</code> em conjunto com <code>auto-fit</code>, os elementos se reorganizam sozinhos baseados no espaço disponível.</p>
+
+            <div class="example-container">
+                <div class="example-visual">
+                    <div class="dynamic-holy-grail">
+                        <div class="holy-box">
+                            <span style="color: var(--primary); font-weight: bold;">Sidebar / Info</span>
+                        </div>
+                        <div class="holy-box">
+                            <article>
+                                <h3 style="color: var(--primary); margin-top: 0;">Conteúdo Principal</h3>
+                                <p>Este card expande para ocupar o espaço disponível, mas respeita o limite mínimo definido no grid.</p>
+                            </article>
+                        </div>
+                        <div class="holy-box">
+                            <span style="color: var(--primary); font-weight: bold;">Widget Extra</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="code-tabs">
+                    <button class="tab-btn active" data-tab="html3">HTML</button>
+                    <button class="tab-btn" data-tab="css3">CSS</button>
+
+                    <div class="tab-content active" id="html3">
+                        <pre><code class="language-html">&lt;div class="dynamic-holy-grail"&gt;
+    &lt;div class="holy-box"&gt;Sidebar / Info&lt;/div&gt;
+    &lt;div class="holy-box"&gt;
+        &lt;article&gt;
+            &lt;h3&gt;Conteúdo Principal&lt;/h3&gt;
+            &lt;p&gt;Este card expande para ocupar o espaço disponível...&lt;/p&gt;
+        &lt;/article&gt;
+    &lt;/div&gt;
+    &lt;div class="holy-box"&gt;Widget Extra&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+                    </div>
+
+                    <div class="tab-content" id="css3">
+                        <pre><code class="language-css">.dynamic-holy-grail {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 16px;
+}</code></pre>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-css.min.js"></script>
+</body>
+
+</html>

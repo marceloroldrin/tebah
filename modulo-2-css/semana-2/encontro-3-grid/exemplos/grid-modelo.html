@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guia CSS: Grid - Tebah</title>
+    <link rel="stylesheet" href="grid-modelo.css">
+    <!-- Prism.js CSS Theme -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="/global.css">
+    <script src="/global.js" defer></script>
+</head>
+
+<body>
+
+    <div class="container">
+        <header>
+            <h1>Guia Prático: CSS Grid</h1>
+            <p>Aprenda os conceitos fundamentais do sistema de grid através de exemplos interativos. Clique nas abas
+                para ver o código HTML e CSS de cada exemplo.</p>
+        </header>
+
+        <hr style="border: 0; border-top: 1px solid var(--border); margin: 40px 0;">
+
+        <!-- Exemplo 1: Colunas Iguais -->
+        <section>
+            <h2>1. Colunas de Largura Igual</h2>
+            <p>O <code>repeat(3, 1fr)</code> cria três colunas que ocupam espaço igual automaticamente, independente do
+                conteúdo.</p>
+
+            <div class="example-container">
+                <div class="example-visual">
+                    <div class="grid-3-cols gap-2">
+                        <div class="grid-item">Coluna 1</div>
+                        <div class="grid-item">Coluna 2</div>
+                        <div class="grid-item">Coluna 3</div>
+                    </div>
+                </div>
+
+                <div class="code-tabs">
+                    <button class="tab-btn active" data-tab="html1">HTML</button>
+                    <button class="tab-btn" data-tab="css1">CSS</button>
+
+                    <div class="tab-content active" id="html1">
+                        <pre><code class="language-html">&lt;div class="grid-3-cols gap-2"&gt;
+    &lt;div class="grid-item"&gt;Coluna 1&lt;/div&gt;
+    &lt;div class="grid-item"&gt;Coluna 2&lt;/div&gt;
+    &lt;div class="grid-item"&gt;Coluna 3&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+                    </div>
+
+                    <div class="tab-content" id="css1">
+                        <pre><code class="language-css">.grid-3-cols {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+}
+
+.grid-item {
+    background-color: rgba(54, 232, 143, 0.1);
+    border: 1px solid var(--primary);
+    padding: 15px;
+    text-align: center;
+    border-radius: 4px;
+}</code></pre>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Exemplo 2: Sidebar Layout -->
+        <section>
+            <h2>2. Layout com Sidebar Fixa</h2>
+            <p>Combinação de coluna fixa (<code>250px</code>) com área flexível (<code>1fr</code>) cria layouts
+                clássicos de sidebar.</p>
+
+            <div class="example-container">
+                <div class="example-visual">
+                    <div class="grid-sidebar-main gap-2">
+                        <div class="grid-item">Sidebar<br>(250px fixo)</div>
+                        <div class="grid-item">Conteúdo Principal<br>(adapta ao espaço)</div>
+                    </div>
+                </div>
+
+                <div class="code-tabs">
+                    <button class="tab-btn active" data-tab="html2">HTML</button>
+                    <button class="tab-btn" data-tab="css2">CSS</button>
+
+                    <div class="tab-content active" id="html2">
+                        <pre><code class="language-html">&lt;div class="grid-sidebar-main gap-2"&gt;
+    &lt;div class="grid-item"&gt;Sidebar&lt;br&gt;(250px fixo)&lt;/div&gt;
+    &lt;div class="grid-item"&gt;Conteúdo Principal&lt;br&gt;(adapta ao espaço)&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+                    </div>
+
+                    <div class="tab-content" id="css2">
+                        <pre><code class="language-css">.grid-sidebar-main {
+    display: grid;
+    grid-template-columns: 250px 1fr;
+    gap: 10px;
+}</code></pre>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Exemplo 3: Auto-fit Responsivo -->
+        <section>
+            <h2>3. Responsividade com Auto-fit</h2>
+            <p>O <code>repeat(auto-fit, minmax(200px, 1fr))</code> cria colunas que se ajustam automaticamente ao espaço
+                disponível, sem necessidade de Media Queries.</p>
+
+            <div class="example-container">
+                <div class="example-visual">
+                    <div class="grid-auto-fit gap-2">
+                        <div class="grid-item">Card 1</div>
+                        <div class="grid-item">Card 2</div>
+                        <div class="grid-item">Card 3</div>
+                        <div class="grid-item">Card 4</div>
+                        <div class="grid-item">Card 5</div>
+                        <div class="grid-item">Card 6</div>
+                    </div>
+                </div>
+
+                <div class="code-tabs">
+                    <button class="tab-btn active" data-tab="html3">HTML</button>
+                    <button class="tab-btn" data-tab="css3">CSS</button>
+
+                    <div class="tab-content active" id="html3">
+                        <pre><code class="language-html">&lt;div class="grid-auto-fit gap-2"&gt;
+    &lt;div class="grid-item"&gt;Card 1&lt;/div&gt;
+    &lt;div class="grid-item"&gt;Card 2&lt;/div&gt;
+    &lt;div class="grid-item"&gt;Card 3&lt;/div&gt;
+    &lt;div class="grid-item"&gt;Card 4&lt;/div&gt;
+    &lt;div class="grid-item"&gt;Card 5&lt;/div&gt;
+    &lt;div class="grid-item"&gt;Card 6&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+                    </div>
+
+                    <div class="tab-content" id="css3">
+                        <pre><code class="language-css">.grid-auto-fit {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 10px;
+}</code></pre>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Exemplo 4: Grid Template Areas -->
+        <section>
+            <h2>4. Layout com Áreas Nomeadas</h2>
+            <p>As <code>grid-template-areas</code> permitem criar layouts complexos de forma semântica, nomeando regiões
+                específicas do grid.</p>
+
+            <div class="example-container">
+                <div class="example-visual">
+                    <div class="grid-named-areas">
+                        <div class="grid-item area-header">Header</div>
+                        <div class="grid-item area-nav">Navigation</div>
+                        <div class="grid-item area-main" style="min-height: 120px;">Main Content Area</div>
+                        <div class="grid-item area-footer">Footer</div>
+                    </div>
+                </div>
+
+                <div class="code-tabs">
+                    <button class="tab-btn active" data-tab="html4">HTML</button>
+                    <button class="tab-btn" data-tab="css4">CSS</button>
+
+                    <div class="tab-content active" id="html4">
+                        <pre><code class="language-html">&lt;div class="grid-named-areas"&gt;
+    &lt;div class="grid-item area-header"&gt;Header&lt;/div&gt;
+    &lt;div class="grid-item area-nav"&gt;Navigation&lt;/div&gt;
+    &lt;div class="grid-item area-main"&gt;Main Content Area&lt;/div&gt;
+    &lt;div class="grid-item area-footer"&gt;Footer&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+                    </div>
+
+                    <div class="tab-content" id="css4">
+                        <pre><code class="language-css">.grid-named-areas {
+    display: grid;
+    grid-template-areas:
+        "header header"
+        "nav main"
+        "footer footer";
+    grid-template-columns: 150px 1fr;
+    gap: 10px;
+}
+
+.area-header { grid-area: header; }
+.area-nav    { grid-area: nav; }
+.area-main   { grid-area: main; }
+.area-footer { grid-area: footer; }</code></pre>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-css.min.js"></script>
+</body>
+
+</html>

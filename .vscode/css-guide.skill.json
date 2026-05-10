@@ -1,0 +1,25 @@
+{
+  "version": "0.2.0",
+  "description": "Cria guias de documentação CSS com exemplos visuais e código em abas, integrado com global.css e global.js.",
+  "categories": ["css", "documentation", "examples", "interactive"],
+  "activation": {
+    "keywords": ["css-guide", "css-examples", "css-docs"],
+    "patterns": ["**/css-*.html", "**/css-*.css"]
+  },
+  "parameters": {
+    "topic": {
+      "type": "string",
+      "description": "O tópico específico do CSS (ex: 'flexbox', 'grid', 'animations', 'selectors')",
+      "required": true
+    },
+    "examples": {
+      "type": "array",
+      "description": "Lista de exemplos a incluir no guia",
+      "items": {
+        "type": "string"
+      },
+      "default": ["básico", "intermediário", "avançado"]
+    }
+  },
+  "instructions": "Sempre use /global.css e /global.js. Estruture o guia com seções numeradas, onde cada exemplo utiliza as classes globais 'example-container' e 'example-visual'. Implemente o sistema de abas com 'code-tabs', 'tab-btn' e IDs 'htmlX'/'cssX'. Use variáveis do global.css (--primary, --panel, etc) e crie um arquivo CSS local apenas para estilos específicos dos componentes demonstrados. Explicações em português e Prism.js para highlight são obrigatórios."
+}

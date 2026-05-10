@@ -1,0 +1,139 @@
+/* Estilo dos Exemplos - Guia CSS Avançado */
+.example-container {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 30px;
+}
+
+.example-visual {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 20px;
+    margin-bottom: 20px;
+    min-height: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* SECTION 1: BENTO GRID (MOSAICO) */
+.bento-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
+    grid-auto-rows: 200px;
+    gap: 16px;
+    width: 100%;
+}
+
+.bento-item {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+    min-width: 0; /* Previne que o grid quebre com conteúdo longo */
+}
+
+.bento-item:hover {
+    transform: translateY(-2px);
+    border-color: var(--primary);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
+.bento-featured {
+    grid-column: span 2;
+    grid-row: span 2;
+    background-color: rgba(54, 232, 143, 0.05);
+    border: 1px solid var(--primary);
+}
+
+.bento-tall {
+    grid-row: span 2;
+}
+
+.bento-wide {
+    grid-column: span 2;
+}
+
+.overlay h3 {
+    font-size: 1.25rem;
+    margin-bottom: 4px;
+    color: var(--primary);
+}
+
+.overlay p {
+    font-size: 0.9rem;
+    color: #9a9a95;
+    margin-bottom: 0;
+}
+
+/* SECTION 2: AUTO-LAYOUT CARDS */
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr));
+    gap: 24px;
+    width: 100%;
+}
+
+.feature-card {
+    background: var(--panel);
+    padding: 30px;
+    border-radius: 12px;
+    border: 1px solid var(--border);
+    text-align: left;
+    transition: all 0.3s ease;
+}
+
+.feature-card:hover {
+    background: rgba(255, 255, 255, 0.02);
+    border-color: var(--primary);
+}
+
+.feature-icon {
+    font-size: 2rem;
+    margin-bottom: 16px;
+    display: block;
+}
+
+.feature-card h3 {
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+}
+
+.feature-card p {
+    margin-bottom: 0;
+}
+
+/* SECTION 3: DYNAMIC LAYOUT */
+.dynamic-holy-grail {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 250px), 1fr));
+    gap: 16px;
+    width: 100%;
+}
+
+.holy-box {
+    background: var(--panel);
+    padding: 25px;
+    border-radius: 12px;
+    border: 1px solid var(--border);
+    min-height: 150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.holy-box article {
+    text-align: left;
+}

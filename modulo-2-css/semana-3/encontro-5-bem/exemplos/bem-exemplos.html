@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guia CSS: Metodologia BEM - Tebah</title>
+    <link rel="stylesheet" href="bem-exemplos.css">
+    <!-- Prism.js CSS Theme -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="/global.css">
+    <script src="/global.js" defer></script>
+</head>
+
+<body>
+
+    <div class="container">
+        <header>
+            <h1>Guia Prático: Metodologia BEM</h1>
+            <p>Aprenda a estruturar seu CSS de forma escalável e semântica utilizando o padrão <strong>Block Element Modifier</strong>.</p>
+        </header>
+
+        <hr style="border: 0; border-top: 1px solid var(--border); margin: 40px 0;">
+
+        <!-- Exemplo 1: Menu de Navegação -->
+        <section>
+            <h2>1. Menu de Navegação</h2>
+            <p>Um exemplo clássico de BEM onde temos um Bloco (menu), Elementos (lista, item, link) e um Modificador (ativo).</p>
+
+            <div class="example-container">
+                <div class="example-visual">
+                    <nav class="menu">
+                        <ul class="menu__lista">
+                            <li class="menu__item"><a href="#" class="menu__link menu__link--ativo">Home</a></li>
+                            <li class="menu__item"><a href="#" class="menu__link">Produtos</a></li>
+                            <li class="menu__item"><a href="#" class="menu__link">Sobre</a></li>
+                            <li class="menu__item"><a href="#" class="menu__link">Contato</a></li>
+                        </ul>
+                    </nav>
+                </div>
+
+                <div class="code-tabs">
+                    <button class="tab-btn active" data-tab="html1">HTML</button>
+                    <button class="tab-btn" data-tab="css1">CSS</button>
+
+                    <div class="tab-content active" id="html1">
+                        <pre><code class="language-html">&lt;nav class="menu"&gt;
+    &lt;ul class="menu__lista"&gt;
+        &lt;li class="menu__item"&gt;
+            &lt;a href="#" class="menu__link menu__link--ativo"&gt;Home&lt;/a&gt;
+        &lt;/li&gt;
+        &lt;li class="menu__item"&gt;
+            &lt;a href="#" class="menu__link"&gt;Produtos&lt;/a&gt;
+        &lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/nav&gt;</code></pre>
+                    </div>
+
+                    <div class="tab-content" id="css1">
+                        <pre><code class="language-css">.menu {
+    width: 100%;
+}
+
+.menu__lista {
+    display: flex;
+    gap: 20px;
+    list-style: none;
+}
+
+.menu__link {
+    color: var(--text);
+    text-decoration: none;
+}
+
+.menu__link--ativo {
+    color: var(--primary);
+    border-bottom: 2px solid var(--primary);
+}</code></pre>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Exemplo 2: Card de Prato -->
+        <section>
+            <h2>2. Card de Conteúdo (Componente Rico)</h2>
+            <p>Demonstração de como lidar com múltiplos elementos dentro de um bloco e modificadores de destaque.</p>
+
+            <div class="example-container">
+                <div class="example-visual">
+                    <div class="prato-card prato-card--destaque">
+                        <h3 class="prato-card__titulo">Hambúrguer Gourmet</h3>
+                        <p class="prato-card__descricao">Pão brioche, blend de 180g, queijo cheddar e bacon crocante.</p>
+                        <span class="prato-card__preco prato-card__preco--promocao">R$ 35,00</span>
+                    </div>
+                </div>
+
+                <div class="code-tabs">
+                    <button class="tab-btn active" data-tab="html2">HTML</button>
+                    <button class="tab-btn" data-tab="css2">CSS</button>
+
+                    <div class="tab-content active" id="html2">
+                        <pre><code class="language-html">&lt;div class="prato-card prato-card--destaque"&gt;
+    &lt;h3 class="prato-card__titulo"&gt;Hambúrguer Gourmet&lt;/h3&gt;
+    &lt;p class="prato-card__descricao"&gt;Pão brioche...&lt;/p&gt;
+    &lt;span class="prato-card__preco prato-card__preco--promocao"&gt;R$ 35,00&lt;/span&gt;
+&lt;/div&gt;</code></pre>
+                    </div>
+
+                    <div class="tab-content" id="css2">
+                        <pre><code class="language-css">.prato-card {
+    background: var(--panel);
+    padding: 20px;
+}
+
+.prato-card--destaque {
+    border: 2px solid var(--primary);
+}
+
+.prato-card__titulo {
+    color: var(--primary);
+}
+
+.prato-card__preco--promocao {
+    color: #ff5555;
+}</code></pre>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Exemplo 3: Botões de Ação -->
+        <section>
+            <h2>3. Botões com Modificadores</h2>
+            <p>Utilização de modificadores para criar variantes de um mesmo componente base.</p>
+
+            <div class="example-container">
+                <div class="example-visual" style="gap: 20px;">
+                    <button class="botao botao--primario">Confirmar</button>
+                    <button class="botao botao--secundario">Cancelar</button>
+                </div>
+
+                <div class="code-tabs">
+                    <button class="tab-btn active" data-tab="html3">HTML</button>
+                    <button class="tab-btn" data-tab="css3">CSS</button>
+
+                    <div class="tab-content active" id="html3">
+                        <pre><code class="language-html">&lt;button class="botao botao--primario"&gt;Confirmar&lt;/button&gt;
+&lt;button class="botao botao--secundario"&gt;Cancelar&lt;/button&gt;</code></pre>
+                    </div>
+
+                    <div class="tab-content" id="css3">
+                        <pre><code class="language-css">.botao {
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+.botao--primario {
+    background: var(--primary);
+    color: var(--bg);
+}
+
+.botao--secundario {
+    border: 1px solid var(--primary);
+    color: var(--primary);
+}</code></pre>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <hr style="border: 0; border-top: 1px solid var(--border); margin: 40px 0;">
+        <h2 style="text-align: center; color: var(--text);">Exemplos para Fixação</h2>
+
+        <!-- Exemplo 4: Alerta de Notificação -->
+        <section>
+            <h2>4. Alerta de Notificação</h2>
+            <p>Um componente de feedback que usa modificadores para indicar o tipo de status (sucesso, erro).</p>
+
+            <div class="example-container">
+                <div class="example-visual" style="flex-direction: column;">
+                    <div class="alerta alerta--sucesso" style="width: 100%;">
+                        <span class="alerta__mensagem">✅ Cadastro realizado com sucesso!</span>
+                        <button class="alerta__botao-fechar">&times;</button>
+                    </div>
+                    <div class="alerta alerta--erro" style="width: 100%;">
+                        <span class="alerta__mensagem">❌ Ocorreu um erro ao processar seu pedido.</span>
+                        <button class="alerta__botao-fechar">&times;</button>
+                    </div>
+                </div>
+
+                <div class="code-tabs">
+                    <button class="tab-btn active" data-tab="html4">HTML</button>
+                    <button class="tab-btn" data-tab="css4">CSS</button>
+
+                    <div class="tab-content active" id="html4">
+                        <pre><code class="language-html">&lt;div class="alerta alerta--sucesso"&gt;
+    &lt;span class="alerta__mensagem"&gt;✅ Sucesso!&lt;/span&gt;
+    &lt;button class="alerta__botao-fechar"&gt;&amp;times;&lt;/button&gt;
+&lt;/div&gt;</code></pre>
+                    </div>
+
+                    <div class="tab-content" id="css4">
+                        <pre><code class="language-css">.alerta {
+    display: flex;
+    padding: 15px;
+    border-radius: 6px;
+}
+
+.alerta--sucesso {
+    background: rgba(54, 232, 143, 0.1);
+    border-left: 5px solid var(--primary);
+}
+
+.alerta__mensagem {
+    flex: 1;
+}</code></pre>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Exemplo 5: Card de Depoimento -->
+        <section>
+            <h2>5. Card de Depoimento</h2>
+            <p>Exemplo de bloco complexo com elementos internos e modificador de alinhamento centralizado.</p>
+
+            <div class="example-container">
+                <div class="example-visual">
+                    <div class="depoimento depoimento--centralizado">
+                        <p class="depoimento__texto">"A metodologia BEM mudou completamente a forma como organizo meus projetos. É muito mais fácil dar manutenção!"</p>
+                        <div class="depoimento__autor">
+                            <img src="https://i.pravatar.cc/150?u=antigravity" alt="Avatar" class="depoimento__avatar">
+                            <span class="depoimento__nome">Ana Silva</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="code-tabs">
+                    <button class="tab-btn active" data-tab="html5">HTML</button>
+                    <button class="tab-btn" data-tab="css5">CSS</button>
+
+                    <div class="tab-content active" id="html5">
+                        <pre><code class="language-html">&lt;div class="depoimento depoimento--centralizado"&gt;
+    &lt;p class="depoimento__texto"&gt;"Frase do depoimento..."&lt;/p&gt;
+    &lt;div class="depoimento__autor"&gt;
+        &lt;img src="..." class="depoimento__avatar"&gt;
+        &lt;span class="depoimento__nome"&gt;Ana Silva&lt;/span&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+                    </div>
+
+                    <div class="tab-content" id="css5">
+                        <pre><code class="language-css">.depoimento {
+    background: var(--panel);
+    padding: 25px;
+}
+
+.depoimento--centralizado {
+    text-align: center;
+}
+
+.depoimento__avatar {
+    width: 50px;
+    border-radius: 50%;
+    border: 2px solid var(--primary);
+}</code></pre>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-css.min.js"></script>
+</body>
+
+</html>

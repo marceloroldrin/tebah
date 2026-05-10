@@ -1,0 +1,122 @@
+:root {
+    --primary: #36e88f; /* Mint */
+    --bg: #090909; /* Ink */
+    --panel: #1f1f1f;
+    --text: #f4f4ef; /* Paper */
+    --code-bg: #121212;
+    --border: rgba(255, 255, 255, 0.1);
+}
+
+body {
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    background-color: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    margin: 0;
+    padding: 20px;
+}
+
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+/* Estrutura de Exemplos para Guias */
+.example-container {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 30px;
+}
+
+.example-visual {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 20px;
+    margin-bottom: 20px;
+    min-height: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+h1, h2, h3 {
+    color: var(--primary);
+    margin-top: 2rem;
+}
+
+p {
+    margin-bottom: 1.5rem;
+    color: #9a9a95;
+}
+
+/* Estilo das Abas */
+.code-tabs {
+    margin-top: 20px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.tab-btn {
+    background: var(--panel);
+    border: none;
+    padding: 12px 20px;
+    color: var(--text);
+    cursor: pointer;
+    border-right: 1px solid var(--border);
+    transition: background 0.3s ease;
+}
+
+.tab-btn:last-child {
+    border-right: none;
+}
+
+.tab-btn.active {
+    background: var(--primary);
+    color: var(--bg);
+}
+
+.tab-btn:hover:not(.active) {
+    background: rgba(54, 232, 143, 0.1);
+}
+
+.tab-content {
+    display: none;
+    background: var(--code-bg);
+}
+
+.tab-content.active {
+    display: block;
+}
+
+pre {
+    margin: 0;
+    padding: 20px;
+    overflow-x: auto;
+    background: var(--code-bg) !important;
+    border-radius: 0;
+}
+
+code {
+    font-family: 'Fira Code', 'Monaco', 'Consolas', monospace;
+    font-size: 0.85rem;
+    line-height: 1.5;
+    color: #e0e0e0;
+}
+
+/* Override Prism default background */
+pre[class*="language-"] {
+    background: var(--code-bg) !important;
+    margin: 0 !important;
+    padding: 20px !important;
+    border-radius: 0 !important;
+}
+
+/* Ensure Prism code blocks inherit our styling */
+pre code {
+    background: transparent !important;
+    color: inherit !important;
+}
