@@ -1,25 +1,31 @@
 {
-  "version": "0.2.0",
-  "description": "Cria guias de documentação CSS com exemplos visuais e código em abas, integrado com global.css e global.js.",
-  "categories": ["css", "documentation", "examples", "interactive"],
+  "version": "0.3.0",
+  "name": "CSS Guide Creator",
+  "description": "Gera documentação interativa de CSS seguindo o padrão visual do projeto Tebah, com abas de código, highlight e integração com global.css.",
+  "categories": ["css", "documentation", "education", "interactivity"],
   "activation": {
-    "keywords": ["css-guide", "css-examples", "css-docs"],
-    "patterns": ["**/css-*.html", "**/css-*.css"]
+    "keywords": ["criar guia css", "gerar documentação css", "exemplo bem", "exemplo grid"],
+    "patterns": ["**/modulo-*-css/**/exemplos/*.html"]
   },
   "parameters": {
     "topic": {
       "type": "string",
-      "description": "O tópico específico do CSS (ex: 'flexbox', 'grid', 'animations', 'selectors')",
+      "description": "O conceito CSS a ser documentado (ex: Flexbox, Grid, BEM, Seletores)",
       "required": true
     },
     "examples": {
       "type": "array",
-      "description": "Lista de exemplos a incluir no guia",
+      "description": "Lista de componentes ou cenários práticos para demonstrar o tópico",
       "items": {
         "type": "string"
       },
-      "default": ["básico", "intermediário", "avançado"]
+      "minItems": 1
+    },
+    "language": {
+      "type": "string",
+      "description": "Idioma da documentação",
+      "default": "pt-br"
     }
   },
-  "instructions": "Sempre use /global.css e /global.js. Estruture o guia com seções numeradas, onde cada exemplo utiliza as classes globais 'example-container' e 'example-visual'. Implemente o sistema de abas com 'code-tabs', 'tab-btn' e IDs 'htmlX'/'cssX'. Use variáveis do global.css (--primary, --panel, etc) e crie um arquivo CSS local apenas para estilos específicos dos componentes demonstrados. Explicações em português e Prism.js para highlight são obrigatórios."
+  "instructions": "1. Utilize o template definido em `.vscode/css-guide.prompt.md` como base estrutural.\n2. Vincule obrigatoriamente `/global.css` e `/global.js` (caminho absoluto da raiz).\n3. Use `Prism.js` ( Tomorrow theme) para syntax highlighting.\n4. Cada exemplo deve ter uma seção `<section>` numerada com `<h2>`, descrição concisa, área visual (`.example-visual`) e abas de código (`.code-tabs`).\n5. **IMPORTANTE**: No snippet de CSS das abas, as propriedades DEVEM ser escritas em múltiplas linhas (uma por linha) para máxima legibilidade.\n6. Utilize exclusivamente as variáveis de design do projeto (`--primary`, `--bg`, `--panel`, `--border`, `--text`).\n7. Explicações devem ser em português acessível, seguindo o tom definido em `ROLE-AGENTE-CRIADOR.md`."
 }
