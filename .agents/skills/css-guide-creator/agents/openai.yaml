@@ -1,0 +1,4 @@
+interface:
+  display_name: "CSS Guide Creator"
+  short_description: "Gera guias CSS interativos no padrão visual do projeto Tebah."
+  default_prompt: "Crie um guia CSS completo seguindo o padrão Tebah com exemplos interativos, abas de código e integração com global.css/global.js."

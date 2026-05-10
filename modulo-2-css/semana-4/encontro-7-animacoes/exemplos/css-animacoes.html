@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guia CSS - Transicoes e Animacoes</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="/global.css">
+    <link rel="stylesheet" href="./css-animacoes.css">
+    <script src="/global.js" defer></script>
+</head>
+<body>
+    <main class="container">
+        <header class="guide-header">
+            <p class="guide-kicker">Semana 4 • Encontro 7</p>
+            <h1>Guia CSS: Transicoes e Animacoes</h1>
+            <p>
+                Neste guia, voce vai ver como pequenos movimentos deixam uma interface mais viva.
+                Os exemplos mostram efeitos sutis para hover, entrada de elementos, destaque visual
+                e acessibilidade com movimento reduzido.
+            </p>
+        </header>
+
+        <section>
+            <h2>1. Card com elevacao no hover</h2>
+            <p>
+                Transicoes ajudam o usuario a perceber que um item pode ser interagido. Aqui, o card
+                sobe alguns pixels e ganha sombra quando o mouse passa por cima.
+            </p>
+
+            <div class="example-container">
+                <div class="example-visual">
+                    <article class="card card--hover">
+                        <span class="card__tag">Destaque</span>
+                        <h3>Prato da Casa</h3>
+                        <p>Um hover suave deixa o card mais claro e convidativo.</p>
+                    </article>
+                </div>
+
+                <div class="code-tabs">
+                    <button class="tab-btn active" data-tab="html1">HTML</button>
+                    <button class="tab-btn" data-tab="css1">CSS</button>
+
+                    <div class="tab-content active" id="html1">
+                        <pre><code class="language-html">&lt;article class="card card--hover"&gt;
+    &lt;span class="card__tag"&gt;Destaque&lt;/span&gt;
+    &lt;h3&gt;Prato da Casa&lt;/h3&gt;
+    &lt;p&gt;Um hover suave deixa o card mais claro e convidativo.&lt;/p&gt;
+&lt;/article&gt;</code></pre>
+                    </div>
+
+                    <div class="tab-content" id="css1">
+                        <pre><code class="language-css">.card--hover {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card--hover:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.28);
+}</code></pre>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>2. Link com mudanca de cor e sublinhado</h2>
+            <p>
+                Links tambem podem indicar interacao com suavidade. Neste exemplo, a cor muda e uma
+                linha inferior aparece sem ser brusca.
+            </p>
+
+            <div class="example-container">
+                <div class="example-visual">
+                    <nav class="menu">
+                        <a class="menu__link" href="#">Entradas</a>
+                        <a class="menu__link" href="#">Pratos</a>
+                        <a class="menu__link" href="#">Sobremesas</a>
+                    </nav>
+                </div>
+
+                <div class="code-tabs">
+                    <button class="tab-btn active" data-tab="html2">HTML</button>
+                    <button class="tab-btn" data-tab="css2">CSS</button>
+
+                    <div class="tab-content active" id="html2">
+                        <pre><code class="language-html">&lt;nav class="menu"&gt;
+    &lt;a class="menu__link" href="#"&gt;Entradas&lt;/a&gt;
+    &lt;a class="menu__link" href="#"&gt;Pratos&lt;/a&gt;
+    &lt;a class="menu__link" href="#"&gt;Sobremesas&lt;/a&gt;
+&lt;/nav&gt;</code></pre>
+                    </div>
+
+                    <div class="tab-content" id="css2">
+                        <pre><code class="language-css">.menu__link {
+    border-bottom: 2px solid transparent;
+    color: var(--text);
+    transition: color 0.3s ease, border-bottom 0.3s ease;
+}
+
+.menu__link:hover {
+    border-bottom: 2px solid var(--primary);
+    color: var(--primary);
+}</code></pre>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>3. Botao com escala suave</h2>
+            <p>
+                Um botao pode ganhar destaque sem exagero. O efeito abaixo amplia levemente o elemento
+                e reforca a ideia de clique.
+            </p>
+
+            <div class="example-container">
+                <div class="example-visual">
+                    <button class="button button--cta" type="button">Pedir agora</button>
+                </div>
+
+                <div class="code-tabs">
+                    <button class="tab-btn active" data-tab="html3">HTML</button>
+                    <button class="tab-btn" data-tab="css3">CSS</button>
+
+                    <div class="tab-content active" id="html3">
+                        <pre><code class="language-html">&lt;button class="button button--cta" type="button"&gt;Pedir agora&lt;/button&gt;</code></pre>
+                    </div>
+
+                    <div class="tab-content" id="css3">
+                        <pre><code class="language-css">.button--cta {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.button--cta:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.22);
+}</code></pre>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>4. Entrada com keyframes</h2>
+            <p>
+                As animacoes com <code>@keyframes</code> permitem controlar como um elemento aparece.
+                Aqui, o bloco surge com opacidade crescente e um pequeno deslocamento vertical.
+            </p>
+
+            <div class="example-container">
+                <div class="example-visual">
+                    <div class="banner banner--entry">
+                        Novidade da semana: menu degustacao com ingredientes regionais.
+                    </div>
+                </div>
+
+                <div class="code-tabs">
+                    <button class="tab-btn active" data-tab="html4">HTML</button>
+                    <button class="tab-btn" data-tab="css4">CSS</button>
+
+                    <div class="tab-content active" id="html4">
+                        <pre><code class="language-html">&lt;div class="banner banner--entry"&gt;
+    Novidade da semana: menu degustacao com ingredientes regionais.
+&lt;/div&gt;</code></pre>
+                    </div>
+
+                    <div class="tab-content" id="css4">
+                        <pre><code class="language-css">@keyframes aparecer {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.banner--entry {
+    animation: aparecer 0.6s ease;
+}</code></pre>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>5. Destaque pulsando com moderacao</h2>
+            <p>
+                Uma animacao continua deve ser usada apenas quando faz sentido. Neste selo, o pulso
+                chama atencao para uma promocao sem tomar conta da tela.
+            </p>
+
+            <div class="example-container">
+                <div class="example-visual">
+                    <span class="badge badge--pulse">Promo 20% OFF</span>
+                </div>
+
+                <div class="code-tabs">
+                    <button class="tab-btn active" data-tab="html5">HTML</button>
+                    <button class="tab-btn" data-tab="css5">CSS</button>
+
+                    <div class="tab-content active" id="html5">
+                        <pre><code class="language-html">&lt;span class="badge badge--pulse"&gt;Promo 20% OFF&lt;/span&gt;</code></pre>
+                    </div>
+
+                    <div class="tab-content" id="css5">
+                        <pre><code class="language-css">@keyframes pulsar {
+    0%, 100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.06);
+    }
+}
+
+.badge--pulse {
+    animation: pulsar 2s ease-in-out infinite;
+}</code></pre>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>6. Movimento reduzido para acessibilidade</h2>
+            <p>
+                Nem todo mundo se sente bem com animacoes. Esta media query reduz o impacto visual
+                quando a pessoa usuaria sinaliza preferencia por menos movimento no sistema.
+            </p>
+
+            <div class="example-container">
+                <div class="example-visual">
+                    <div class="accessibility-note">
+                        <p>Boa pratica: respeitar a preferencia de movimento reduzido.</p>
+                        <p>Isso melhora conforto e acessibilidade.</p>
+                    </div>
+                </div>
+
+                <div class="code-tabs">
+                    <button class="tab-btn active" data-tab="html6">HTML</button>
+                    <button class="tab-btn" data-tab="css6">CSS</button>
+
+                    <div class="tab-content active" id="html6">
+                        <pre><code class="language-html">&lt;div class="accessibility-note"&gt;
+    &lt;p&gt;Boa pratica: respeitar a preferencia de movimento reduzido.&lt;/p&gt;
+    &lt;p&gt;Isso melhora conforto e acessibilidade.&lt;/p&gt;
+&lt;/div&gt;</code></pre>
+                    </div>
+
+                    <div class="tab-content" id="css6">
+                        <pre><code class="language-css">@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}</code></pre>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-css.min.js"></script>
+</body>
+</html>
